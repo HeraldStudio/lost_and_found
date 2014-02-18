@@ -16,7 +16,7 @@ class AddContentController extends Controller{
 			$place="图书馆";
 			$datetime="2013-12-21 23:10:00";
 			$thing_describe="很精致，像是女生的";
-			$picture_url="Application/Home/pictures/default2.jpg";
+			$picture_url="Public/pictures/default2.jpg";
 			$content_id=16;
 			//'
 

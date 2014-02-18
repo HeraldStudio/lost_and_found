@@ -5,19 +5,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="Application/Home/View/Index/support/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="Application/Home/View/Index/support/css/application.css" rel="stylesheet" media="screen">
+    <link href="Public/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="Public/css/application.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="Application/Home/View/Index/support/js/html5shiv.js"></script>
-      <script src="Application/Home/View/Index/support/js/respond.min.js"></script>
+      <script src="Public/js/html5shiv.js"></script>
+      <script src="Public/js/respond.min.js"></script>
     <![endif]-->
   </head>
 
   <body>
   	<div id="myHead">
-		<img id="headImg" src="Application/Home/View/Index/support/img/return-back.png"/>
+		<img id="headImg" src="Public/img/return-back.png"/>
 		<div id="myTitle">
 			<div id="myTitle1"><strong>失物招领</strong></div>
 			<div id="myTitle2">您口袋的小补丁</div>
@@ -42,8 +42,8 @@
 			    	<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn">全部信息</button></li>
   					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn">有人捡到</button></li>
   					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn">有人丢失</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn">我捡到了...</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn">我弄丢了...</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#picks">我捡到了…</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了…</button></li>
 			    </ul>
           <ul class="nav navbar-nav">
             <li class="toolButton"><button type="button" class="btn btn-success navbar-btn" data-toggle="modal" data-target="#filter">类型筛选</button></li>
@@ -156,11 +156,164 @@
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+
+    <!-- picks Modal -->
+  <div class="modal fade" id="picks" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">发布招领信息</h4>
+        </div>
+        <!--窗口主体-->
+        <div class="modal-body">
+            <form action="" method="POST" class="form-horizontal" id="picksForm" role="form">
+              <div class="form-group">
+                <label for="pc_thing_name" class="col-sm-3 control-label">物品名称：</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="pc_things_name" name="pc_thing_name" placeholder="物品名称">
+                </div>
+              </div>
+                
+               <div class="form-group">
+                <label for="type" class="col-sm-3 control-label">类型：</label>
+                <div class="col-xs-6">
+              <select class="form-control">
+                 <option id="inlineCheckbox1" value="book"> 书本文具</option>
+                <option  id="inlineCheckbox2" value="electricity"> 电子产品</option>
+                <option  id="inlineCheckbox3" value="car"> 卡片证件</option>
+                <option  id="inlineCheckbox4" value="money"> 钱包钱币</option>
+                <option  id="inlineCheckbox5" value="key"> 钥匙挂件</option>
+                <option  id="inlineCheckbox6" value="others"> 其它等等</option>
+              </select>
+            </div>
+            </div>
+              <div class="form-group">
+                    <label for="pc_place" class="col-sm-3 control-label">地点：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="pc_place" name="pc_place" placeholder="地点">
+                </div>
+              </div>
+
+              <div class="form-group">
+                    <label for="pc_datetime" class="col-sm-3 control-label">时间:</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="pc_datetime" >
+                </div>
+              </div>
+
+              <div class="form-group">
+                    <label for="ls_contact" class="col-sm-3 control-label">联系方式：</label>
+                <div class="col-sm-6">
+                    <input type="tel" class="form-control" id="pc_contact" placeholder="联系方式">
+                </div>
+              </div>
+
+              <div class="form-group">
+                    <label for="place" class="col-sm-3 control-label">上传图片：</label>
+                <div class="col-sm-6">
+                    <input type="file" class="Input_file" name=" pc_picture">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="pc_thing_des" class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-6">
+                <textarea class="form-control" rows="3" name="pc_thing_des"></textarea>
+              </div>
+              </div>
+                    </form>
+                  </div>
+          <!--窗口主体-->     
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary" id="pc_send">确认</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+   <!-- loses Modal -->
+  <div class="modal fade" id="loses" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">发布招领信息</h4>
+        </div>
+        <!--窗口主体-->
+        <div class="modal-body">
+            <form class="form-horizontal" id="losesForm" role="form">
+              <div class="form-group">
+                <label for="pc_things_name" class="col-sm-3 control-label">物品名称：</label>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" id="ls_things_name" placeholder="物品名称">
+                </div>
+              </div>
+                
+               <div class="form-group">
+                <label for="type" class="col-sm-3 control-label">类型：</label>
+                <div class="col-xs-6">
+              <select class="form-control">
+                 <option id="inlineCheckbox3" value="option3"> 书本文具</option>
+                <option  id="inlineCheckbox2" value="option2"> 电子产品</option>
+                <option  id="inlineCheckbox2" value="option2"> 卡片证件</option>
+                <option  id="inlineCheckbox3" value="option3"> 钱包钱币</option>
+                <option  id="inlineCheckbox1" value="option1"> 钥匙挂件</option>
+                <option  id="inlineCheckbox3" value="option3"> 其它等等</option>
+              </select>
+            </div>
+            </div>
+              <div class="form-group">
+                    <label for="ls_place" class="col-sm-3 control-label">地点：</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="ls_place" placeholder="地点">
+                </div>
+              </div>
+
+              <div class="form-group">
+                    <label for="pc_datetime" class="col-sm-3 control-label">时间:</label>
+                <div class="col-sm-6">
+                    <input type="date" class="form-control" id="ls_datetime" >
+                </div>
+              </div>
+
+              <div class="form-group">
+                    <label for="ls_contact" class="col-sm-3 control-label">联系方式：</label>
+                <div class="col-sm-6">
+                    <input type="tel" class="form-control" id="ls_contact" placeholder="联系方式">
+                </div>
+              </div>
+
+              <div class="form-group">
+                    <label for="place" class="col-sm-3 control-label">上传图片：</label>
+                <div class="col-sm-6">
+                    <input type="file" class="Input_file" id=" ls_picture">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="pc_thing_des" class="col-sm-3 control-label">备注：</label>
+                <div class="col-sm-6">
+                <textarea class="form-control" rows="3" id="ls_thing_des"></textarea>
+              </div>
+              </div>
+                    </form>
+                  </div>
+          <!--窗口主体-->     
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+          <button type="button" class="btn btn-primary">确认</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
   	<div id="tip">
   		失物招领
   		<div id="tipInner">全部信息</div>
   	</div>
-  	<img id="pin" src="Application/Home/View/Index/support/img/pin.png"/>
+  	<img id="pin" src="Public/img/pin.png"/>
 
     <div class="vBar" id="allInf"></div>
   	<div class="vBar" id="someonePick"></div>
@@ -191,11 +344,11 @@
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="Application/Home/View/Index/support/js/jquery.js"></script>
+    <script src="Public/js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="Application/Home/View/Index/support/js/bootstrap.js"></script>
-    <script src="Application/Home/View/Index/support/js/animate.js"></script>
-    <script src="Application/Home/View/Index/support/js/login.js"></script>
-    <script src="Application/Home/View/Index/support/js/function.js"></script>
+    <script src="Public/js/bootstrap.js"></script>
+    <script src="Public/js/animate.js"></script>
+    <script src="Public/js/login.js"></script>
+    <script src="Public/js/function.js"></script>
   </body>
 </html>
