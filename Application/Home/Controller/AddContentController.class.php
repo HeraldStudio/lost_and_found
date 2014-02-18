@@ -6,8 +6,8 @@ class AddContentController extends Controller{
 		$receiveInfo["loseId"]=I('post.loseId');
 		$receiveInfo["pickId"]=I('post.pickId');
 		$receiveInfo["addCount"]=I('post.addCount');
-		//$receiveInfo["typeFilter"]=
-
+		$receiveInfo["typeFilter"]=I('post.typeFilter');	//这是一个布尔数组，包含类型过滤的信息，元素有stationery、electronic、card、money、keys、others
+		
 		for($i=0;$i<$receiveInfo["addCount"];$i++)
 		{
 			

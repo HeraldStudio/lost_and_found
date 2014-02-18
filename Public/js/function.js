@@ -3,6 +3,14 @@
 	var globalPickId=0;
 	var addNum=12;	//设置每次加载的个数
 	var addButton=new addButtonClass();
+	var typeSelect=new Array();
+	typeSelect["stationery"]=true;
+	typeSelect["electronic"]=true;
+	typeSelect["card"]=true;
+	typeSelect["money"]=true;
+	typeSelect["keys"]=true;
+	typeSelect["others"]=true;
+
 //'
 
 jQuery(document).ready(function(){
@@ -22,7 +30,16 @@ function addContent(loseId,pickId,addCount){	//count为加载的数量
 		url:'index.php/Home/AddContent/index',
 		type:'post',
 		dataType:'json',
-		data:{"loseId": loseId,"pickId":pickId,"addCount": addCount},
+		data:{"loseId": loseId, "pickId": pickId, "addCount": addCount,
+		typeFilter:{
+				stationery: typeSelect["stationery"],
+				electronic: typeSelect["electronic"],
+				card: typeSelect["card"],
+				money: typeSelect["money"],
+				keys: typeSelect["keys"],
+				others: typeSelect["others"]
+			}
+		},
 		success:function(data){
 			//加载具体内容
 			globalLoseId=data.loseId;
