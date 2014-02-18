@@ -10,6 +10,7 @@ class AddContentController extends Controller{
 
 		for($i=0;$i<$receiveInfo["addCount"];$i++)
 		{
+			
 			//用Modal代替以下内容
 			$infoType="con-pick";
 			$thing_name="钥匙";
