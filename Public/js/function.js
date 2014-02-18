@@ -1,30 +1,39 @@
 //全局变量
-	var globalLoseId=0;
+	var globalLoseId=1;
 	var globalPickId=0;
-	var addNum=12;	//设置每次加载的个数
+	var addNum=12;	//设置每次加载的个数 
 	var addButton=new addButtonClass();
 	var typeSelect=new Array();
-	typeSelect["stationery"]=true;
-	typeSelect["electronic"]=true;
-	typeSelect["card"]=true;
-	typeSelect["money"]=true;
-	typeSelect["keys"]=true;
-	typeSelect["others"]=true;
+		typeSelect["stationery"]=true;
+		typeSelect["electronic"]=true;
+		typeSelect["card"]=true;
+		typeSelect["money"]=true;
+		typeSelect["keys"]=true;
+		typeSelect["others"]=true;
 
 //'
 
 jQuery(document).ready(function(){
 	//初始化加载
-	addContent(0,0,addNum);
+	addContent(globalLoseId,globalPickId,addNum);
 	//'
 
 	$(window).resize(function() {
 		winResize();
 	});
 
+	$("#allInfo").click(function(){allInfo();});
+	$("#allInf2").click(function(){allInfo();});
+	$("#othersPick").click(function(){othersPick();});
+	$("#someonePick2").click(function(){othersPick();});
+	$("#othersLose").click(function(){othersLose();});
+	$("#someoneLose2").click(function(){othersLose();});
+
+	$("#filterOK").click(function(){filterOK();});
+
 });
 
-function addContent(loseId,pickId,addCount){	//count为加载的数量
+function addContent(loseId,pickId,addCount,clean){	//count为加载的数量
 	addButton.loading();
 	$.ajax({
 		url:'index.php/Home/AddContent/index',
@@ -44,7 +53,11 @@ function addContent(loseId,pickId,addCount){	//count为加载的数量
 			//加载具体内容
 			globalLoseId=data.loseId;
 			globalPickId=data.pickId;
-			$("#content-inner").append(data.content);
+			if(clean){
+				$("#content-inner").html(data.content);
+			}else{
+				$("#content-inner").append(data.content);
+			}
 			if(data.ifEnd)
 			{
 				addButton.noMore();
@@ -76,7 +89,7 @@ function addButtonClass(){
 		ifLoading=false;
 		$("#addmore").html("加载更多");
 		$("#addmore").click(function(){
-			addContent(globalPickId,globalLoseId,addNum);
+			addContent(globalPickId, globalLoseId, addNum);
 		});
 	}
 	btn.noMore=function(){
@@ -117,4 +130,41 @@ function comment(commentId){
 
 function detail(detailId){
 	alert("detail"+detailId);
+}
+
+function allInfo(){
+	if(!(globalLoseId>=0 && globalPickId>=0)){	//筛选方向有变化
+		globalLoseId=0;
+		globalPickId=0;
+		addContent(globalLoseId, globalPickId, addNum, true);
+	}
+}
+
+function othersPick(){
+	if(!(globalLoseId<0 && globalPickId>=0)){	//筛选方向有变化
+		globalLoseId=-1;
+		globalPickId=0;
+		addContent(globalLoseId, globalPickId, addNum, true);
+	}
+}
+
+function othersLose(){
+	if(!(globalLoseId>=0 && globalPickId<0)){	//筛选方向有变化
+		globalLoseId=0;
+		globalPickId=-1;
+		addContent(globalLoseId, globalPickId, addNum ,true);
+	}
+}
+
+function filterOK(){	
+		typeSelect["stationery"]=$("#stationery").is(":checked");
+		typeSelect["electronic"]=$("#electronic").is(":checked");
+		typeSelect["card"]=$("#card").is(":checked");
+		typeSelect["money"]=$("#money").is(":checked");
+		typeSelect["keys"]=$("#keys").is(":checked");
+		typeSelect["others"]=$("#others").is(":checked");
+		if(globalLoseId>0) globalLoseId=0;
+		if(globalPickId>0) globalPickId=0;
+		addContent(globalLoseId, globalPickId, addNum ,true);
+		$("#filter").modal('hide');
 }

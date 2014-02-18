@@ -39,9 +39,9 @@
 			  <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav" id="tool">
-			    	<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn">全部信息</button></li>
-  					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn">有人捡到</button></li>
-  					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn">有人丢失</button></li>
+			    	<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="allInfo">全部信息</button></li>
+  					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="othersPick">有人捡到</button></li>
+  					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="othersLose">有人丢失</button></li>
             <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#picks">我捡到了…</button></li>
             <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了…</button></li>
 			    </ul>
@@ -127,31 +127,31 @@
           <!--窗口主体-->
           <div class="filterBox">
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" checked> 书本文具
+              <input type="checkbox" id="stationery" checked="checked"> 书本文具
             </label>
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" checked> 电子产品
+              <input type="checkbox" id="electronic" checked> 电子产品
             </label>
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" checked> 卡片证件
+              <input type="checkbox" id="card" checked> 卡片证件
             </label>
           </div>
           <div class="filterBox">
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" checked> 钱包钱币
+              <input type="checkbox" id="money" checked> 钱包钱币
             </label>
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" checked> 钥匙挂件
+              <input type="checkbox" id="keys" checked> 钥匙挂件
             </label>
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" checked> 其它等等
+              <input type="checkbox" id="others" checked> 其它等等
             </label>
           </div>
           <!--窗口主体-->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default"  id="closeFilter2">取消</button>
-            <button type="button" class="btn btn-primary">确定</button>
+            <button type="button" class="btn btn-primary" id="filterOK">确定</button>
           </div>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->

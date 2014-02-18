@@ -7,7 +7,7 @@ class AddContentController extends Controller{
 		$receiveInfo["pickId"]=I('post.pickId');
 		$receiveInfo["addCount"]=I('post.addCount');
 		$receiveInfo["typeFilter"]=I('post.typeFilter');	//这是一个布尔数组，包含类型过滤的信息，元素有stationery、electronic、card、money、keys、others
-		
+
 		for($i=0;$i<$receiveInfo["addCount"];$i++)
 		{
 			
@@ -35,6 +35,10 @@ class AddContentController extends Controller{
 			$returnInfo["content"]=$returnInfo["content"].$this->fetch("AddContent");
 			$returnInfo["ifEnd"]=false;	//标记是否全部加在完成，True表示没有更多
 		}
+
+		$returnInfo["loseId"]=$receiveInfo["loseId"];
+		$returnInfo["pickId"]=$receiveInfo["pickId"];
+
 		echo json_encode($returnInfo);		
 	}
 }
