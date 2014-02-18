@@ -1,0 +1,29 @@
+
+<div class="thumbnail content {$infoType}">
+  <div class="con-pic" id="{$content_id}">
+    <img src={$picture_url} style="width:240px;height:120px;">
+  </div>
+  <div class="caption">
+    <div class="con-describe">
+      <p><?php
+        if($infoType=="con-pick"){
+          ?>
+          捡到
+          <?php
+        }
+        else{
+          ?>
+          丢失
+          <?php
+        }
+      ?>：{$thing_name}</p> 
+      <p>地点：{$place}</p>
+      <p>时间：{$datetime}</p>
+      <p>描述：{$thing_describe}</p>
+    </div>
+    <p>
+      <button class="btn btn-default btn-xs comment" id="{$content_id}">评论</button>
+      <button class="btn btn-primary btn-xs detail" id="{$content_id}">详情</button>
+    </p>
+  </div>
+</div>
