@@ -2,9 +2,11 @@
 namespace Home\Model;
 use Think\Model;
 class AddContentModel extends Model {
-	protected $trueTableName="loses";
-
+	private $losesTable;
+	private $picksTable;
 	public function addContent($receiveInfo){
+
+
 
 	}
 }

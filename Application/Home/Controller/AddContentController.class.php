@@ -16,15 +16,12 @@ class AddContentController extends Controller{
 			
 
 			$md=D('AddContent');
-			$zd=$md->where('loseid=5')->getField('thing_name');
+			//$zd=$md->where('loseid=5')->getField('thing_name');
 
 
 
 			$infoType="con-pick";
-			
-			//$thing_name="钥匙";
-			$thing_name=$zd;
-			
+			$thing_name="钥匙";			
 			$place="图书馆";
 			$datetime="2013-12-21 23:10:00";
 			$thing_describe="很精致，像是女生的";
