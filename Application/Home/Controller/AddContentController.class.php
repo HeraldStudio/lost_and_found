@@ -12,16 +12,26 @@ class AddContentController extends Controller{
 		{
 			
 			//用Modal代替以下内容
+
+			
+
+			$md=D('AddContent');
+			$zd=$md->where('loseid=5')->getField('thing_name');
+
+
+
 			$infoType="con-pick";
-			$thing_name="钥匙";
+			
+			//$thing_name="钥匙";
+			$thing_name=$zd;
+			
 			$place="图书馆";
 			$datetime="2013-12-21 23:10:00";
 			$thing_describe="很精致，像是女生的";
 			$picture_url="Public/pictures/default2.jpg";
 			$content_id=16;
+
 			//'
-
-
 
 			$outputArray["infoType"]=$infoType;	//用于区别是丢失还是捡到 con-pick/con-lose
 			$outputArray["thing_name"]=$thing_name;	//物品的名称
@@ -33,6 +43,7 @@ class AddContentController extends Controller{
 			$this->assign($outputArray);
 
 			$returnInfo["content"]=$returnInfo["content"].$this->fetch("AddContent");
+
 			$returnInfo["ifEnd"]=false;	//标记是否全部加在完成，True表示没有更多
 		}
 
