@@ -58,6 +58,7 @@ class AddContentModel extends Model {
 			}
 
 			for($i=1; $i<$receiveInfo["addCount"]; $i++){
+				//每次载入新内容时比较时间
 
 			}
 
