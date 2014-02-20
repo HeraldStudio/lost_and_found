@@ -127,24 +127,24 @@
           <!--窗口主体-->
           <div class="filterBox">
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="stationery" checked="checked"> 书本文具
+              <input type="checkbox" id="stationery"> 书本文具
             </label>
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="electronic" checked> 电子产品
+              <input type="checkbox" id="electronic"> 电子产品
             </label>
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="card" checked> 卡片证件
+              <input type="checkbox" id="card"> 卡片证件
             </label>
           </div>
           <div class="filterBox">
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="money" checked> 钱包钱币
+              <input type="checkbox" id="money"> 钱包钱币
             </label>
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="keys" checked> 钥匙挂件
+              <input type="checkbox" id="keys"> 钥匙挂件
             </label>
             <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="others" checked> 其它等等
+              <input type="checkbox" id="others"> 其它等等
             </label>
           </div>
           <!--窗口主体-->

@@ -5,4 +5,5 @@ class LosesModel extends Model {
 	protected $trueTableName="loses";	//定义数据表
 
 
+
 }

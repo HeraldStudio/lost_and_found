@@ -1,7 +1,7 @@
 //全局变量
-	var globalLoseId=1;
+	var globalLoseId=0;
 	var globalPickId=0;
-	var addNum=12;	//设置每次加载的个数 
+	var addNum=2;	//设置每次加载的个数 
 	var addButton=new addButtonClass();
 	var typeSelect=new Array();
 		typeSelect["stationery"]=true;
@@ -50,21 +50,23 @@ function addContent(loseId,pickId,addCount,clean){	//count为加载的数量
 			}
 		},
 		success:function(data){
-			//加载具体内容
 			globalLoseId=data.loseId;
 			globalPickId=data.pickId;
+		//	alert("loseid:"+globalLoseId+"  pickid:"+globalPickId);
 			if(clean){
-				$("#content-inner").html(data.content);
+				if(data.content!=undefined){
+					$("#content-inner").html(data.content);
+				}else{
+					$("#content-inner").html("");
+				}
 			}else{
 				$("#content-inner").append(data.content);
 			}
-			if(data.ifEnd)
-			{
+			if(data.ifEnd){
 				addButton.noMore();
-				exit;
+			}else{
+				addButton.stop();
 			}
-			//'
-			addButton.stop();
 			winResize();
 			reBindConFun();
 		},
@@ -89,7 +91,7 @@ function addButtonClass(){
 		ifLoading=false;
 		$("#addmore").html("加载更多");
 		$("#addmore").click(function(){
-			addContent(globalPickId, globalLoseId, addNum);
+			addContent(globalLoseId, globalPickId, addNum);
 		});
 	}
 	btn.noMore=function(){
@@ -165,6 +167,6 @@ function filterOK(){
 		typeSelect["others"]=$("#others").is(":checked");
 		if(globalLoseId>0) globalLoseId=0;
 		if(globalPickId>0) globalPickId=0;
-		addContent(globalLoseId, globalPickId, addNum ,true);
 		$("#filter").modal('hide');
+		addContent(globalLoseId, globalPickId, addNum ,true);
 }
