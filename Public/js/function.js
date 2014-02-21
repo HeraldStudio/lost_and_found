@@ -112,26 +112,38 @@ function winResize(){
 function reBindConFun(){
 	$(".comment").unbind();
 	$(".comment").click(function(){
-		comment(this.id);
+		if ($(this).hasClass("btnLose")) {
+			comment("lose", this.id);
+		}else{
+			comment("pick", this.id);
+		}
 	});
 
 	$(".detail").unbind();
 	$(".detail").click(function(){
-		detail(this.id);
+		if ($(this).hasClass("btnLose") ){
+			detail("lose", this.id);
+		}else{
+			detail("pick", this.id);
+		}
 	});
 
 	$(".con-pic").unbind();
 	$(".con-pic").click(function(){
-		detail(this.id);
+		if ($(this).hasClass("btnLose")) {
+			detail("lose", this.id);
+		}else{
+			detail("pick", this.id);
+		}
 	});	
 }
 
-function comment(commentId){
-	alert("comment"+commentId);
+function comment(infoType, commentId){
+	alert(infoType+" comment"+commentId);
 }
 
-function detail(detailId){
-	alert("detail"+detailId);
+function detail(infoType, detailId){
+	alert(infoType+" detail"+detailId);
 }
 
 function allInfo(){

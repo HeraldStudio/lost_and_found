@@ -1,7 +1,19 @@
 
 <div class="thumbnail content {$infoType}">
-  <div class="con-pic" id="{$content_id}">
-    <img src={$picture_url} style="width:240px;height:120px;">
+  <div 
+      <?php
+        if($infoType=="con-pick"){
+      ?>
+      class="con-pic btnPick"
+      <?php
+        }else{
+      ?>
+      class="con-pic btnLose" 
+      <?php
+        }
+      ?>
+  id="{$content_id}">
+    <img src={$picture_url} style="width:{$width}px; height:{$height}px; margin-top:{$marginTop}px; margin-left:{$marginLeft}px;">
   </div>
   <div class="caption">
     <div class="con-describe">
@@ -22,8 +34,33 @@
       <p>描述：{$thing_describe}</p>
     </div>
     <p>
-      <button class="btn btn-default btn-xs comment" id="{$content_id}">评论</button>
-      <button class="btn btn-primary btn-xs detail" id="{$content_id}">详情</button>
+      <button 
+      <?php
+        if($infoType=="con-pick"){
+      ?>
+      class="btn btn-default btn-xs btnPick comment" 
+      <?php
+        }else{
+      ?>
+      class="btn btn-default btn-xs btnLose comment" 
+      <?php
+        }
+      ?>
+
+      id="{$content_id}">评论</button>
+      <button 
+      <?php
+        if($infoType=="con-pick"){
+      ?>
+        class="btn btn-success btn-xs btnPick detail"
+      <?php
+        }else{
+      ?>
+        class="btn btn-danger btn-xs btnLose detail"
+      <?php
+        }
+      ?>
+       id="{$content_id}">详情</button>
     </p>
   </div>
 </div>

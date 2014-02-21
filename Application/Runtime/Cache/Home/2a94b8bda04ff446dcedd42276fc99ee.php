@@ -239,7 +239,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">发布招领信息</h4>
+          <h4 class="modal-title" id="myModalLabel">发布寻物信息</h4>
         </div>
         <!--窗口主体-->
         <div class="modal-body">
@@ -251,16 +251,16 @@
                 </div>
               </div>
                 
-               <div class="form-group">
+                <div class="form-group">
                 <label for="type" class="col-sm-3 control-label">类型：</label>
                 <div class="col-xs-6">
               <select class="form-control">
-                 <option id="inlineCheckbox3" value="option3"> 书本文具</option>
-                <option  id="inlineCheckbox2" value="option2"> 电子产品</option>
-                <option  id="inlineCheckbox2" value="option2"> 卡片证件</option>
-                <option  id="inlineCheckbox3" value="option3"> 钱包钱币</option>
-                <option  id="inlineCheckbox1" value="option1"> 钥匙挂件</option>
-                <option  id="inlineCheckbox3" value="option3"> 其它等等</option>
+                 <option id="inlineCheckbox1" value="book"> 书本文具</option>
+                <option  id="inlineCheckbox2" value="electricity"> 电子产品</option>
+                <option  id="inlineCheckbox3" value="car"> 卡片证件</option>
+                <option  id="inlineCheckbox4" value="money"> 钱包钱币</option>
+                <option  id="inlineCheckbox5" value="key"> 钥匙挂件</option>
+                <option  id="inlineCheckbox6" value="others"> 其它等等</option>
               </select>
             </div>
             </div>
@@ -274,7 +274,7 @@
               <div class="form-group">
                     <label for="pc_datetime" class="col-sm-3 control-label">时间:</label>
                 <div class="col-sm-6">
-                    <input type="date" class="form-control" id="ls_datetime" >
+                    <input type="text" class="form-control" id="ls_datetime"  placeholder="时间">
                 </div>
               </div>
 
@@ -288,14 +288,14 @@
               <div class="form-group">
                     <label for="place" class="col-sm-3 control-label">上传图片：</label>
                 <div class="col-sm-6">
-                    <input type="file" class="Input_file" id=" ls_picture">
+                    <input type="file" class="Input_file" id=" ls_picture" >
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="pc_thing_des" class="col-sm-3 control-label">备注：</label>
                 <div class="col-sm-6">
-                <textarea class="form-control" rows="3" id="ls_thing_des"></textarea>
+                <textarea class="form-control" rows="3" id="ls_thing_describe"></textarea>
               </div>
               </div>
                     </form>
@@ -303,7 +303,7 @@
           <!--窗口主体-->     
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-          <button type="button" class="btn btn-primary">确认</button>
+          <button type="button" class="btn btn-primary" id="ls_send">确认</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -350,5 +350,6 @@
     <script src="Public/js/animate.js"></script>
     <script src="Public/js/login.js"></script>
     <script src="Public/js/function.js"></script>
+    <script src="Public/js/formhandle.js"></script>
   </body>
 </html>

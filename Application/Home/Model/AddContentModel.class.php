@@ -101,8 +101,8 @@ class AddContentModel extends Model {
 					$outputArray[$i]["thing_name"]=$loseSelectTable[0]["thing_name"];
 					$outputArray[$i]["place"]=$loseSelectTable[0]["place"];
 					$outputArray[$i]["datetime"]=$loseSelectTable[0]["datetime"];
-				//	$outputArray[$i]["thing_describe"]=$loseSelectTable[0]["thing_describe"];
-					$outputArray[$i]["thing_describe"]=$sqlFilter;
+					$outputArray[$i]["thing_describe"]=$loseSelectTable[0]["thing_describe"];
+
 
 					//有图片
 					if($loseSelectTable[0]["if_has_picture"]){
@@ -126,8 +126,8 @@ class AddContentModel extends Model {
 					$outputArray[$i]["thing_name"]=$pickSelectTable[0]["thing_name"];
 					$outputArray[$i]["place"]=$pickSelectTable[0]["place"];
 					$outputArray[$i]["datetime"]=$pickSelectTable[0]["datetime"];
-				//	$outputArray[$i]["thing_describe"]=$pickSelectTable[0]["thing_describe"];
-					$outputArray[$i]["thing_describe"]=$sqlFilter;
+					$outputArray[$i]["thing_describe"]=$pickSelectTable[0]["thing_describe"];
+
 
 					//有图片	
 					if($pickSelectTable[0]["if_has_picture"]){
@@ -157,8 +157,7 @@ class AddContentModel extends Model {
 				$outputArray[$i]["thing_name"]=$pickSelectTable[0]["thing_name"];
 				$outputArray[$i]["place"]=$pickSelectTable[0]["place"];
 				$outputArray[$i]["datetime"]=$pickSelectTable[0]["datetime"];
-			//	$outputArray[$i]["thing_describe"]=$pickSelectTable[0]["thing_describe"];
-				$outputArray[$i]["thing_describe"]=$sqlFilter;
+				$outputArray[$i]["thing_describe"]=$pickSelectTable[0]["thing_describe"];
 
 				//有图片
 				if($pickSelectTable[0]["if_has_picture"]){
@@ -187,8 +186,8 @@ class AddContentModel extends Model {
 				$outputArray[$i]["thing_name"]=$loseSelectTable[0]["thing_name"];
 				$outputArray[$i]["place"]=$loseSelectTable[0]["place"];
 				$outputArray[$i]["datetime"]=$loseSelectTable[0]["datetime"];
-			//	$outputArray[$i]["thing_describe"]=$loseSelectTable[0]["thing_describe"];
-				$outputArray[$i]["thing_describe"]=$sqlFilter;
+				$outputArray[$i]["thing_describe"]=$loseSelectTable[0]["thing_describe"];
+
 
 				//有图片
 				if($loseSelectTable[0]["if_has_picture"]){

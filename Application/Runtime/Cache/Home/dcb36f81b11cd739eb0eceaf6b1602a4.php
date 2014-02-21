@@ -1,7 +1,16 @@
 <?php if (!defined('THINK_PATH')) exit();?>
 <div class="thumbnail content <?php echo ($infoType); ?>">
-  <div class="con-pic" id="<?php echo ($content_id); ?>">
-    <img src=<?php echo ($picture_url); ?> style="width:240px;height:120px;">
+  <div 
+      <?php
+ if($infoType=="con-pick"){ ?>
+      class="con-pic btnPick"
+      <?php
+ }else{ ?>
+      class="con-pic btnLose" 
+      <?php
+ } ?>
+  id="<?php echo ($content_id); ?>">
+    <img src=<?php echo ($picture_url); ?> style="width:<?php echo ($width); ?>px; height:<?php echo ($height); ?>px; margin-top:<?php echo ($marginTop); ?>px; margin-left:<?php echo ($marginLeft); ?>px;">
   </div>
   <div class="caption">
     <div class="con-describe">
@@ -18,8 +27,27 @@
       <p>描述：<?php echo ($thing_describe); ?></p>
     </div>
     <p>
-      <button class="btn btn-default btn-xs comment" id="<?php echo ($content_id); ?>">评论</button>
-      <button class="btn btn-primary btn-xs detail" id="<?php echo ($content_id); ?>">详情</button>
+      <button 
+      <?php
+ if($infoType=="con-pick"){ ?>
+      class="btn btn-default btn-xs btnPick comment" 
+      <?php
+ }else{ ?>
+      class="btn btn-default btn-xs btnLose comment" 
+      <?php
+ } ?>
+
+      id="<?php echo ($content_id); ?>">评论</button>
+      <button 
+      <?php
+ if($infoType=="con-pick"){ ?>
+        class="btn btn-success btn-xs btnPick detail"
+      <?php
+ }else{ ?>
+        class="btn btn-danger btn-xs btnLose detail"
+      <?php
+ } ?>
+       id="<?php echo ($content_id); ?>">详情</button>
     </p>
   </div>
 </div>
