@@ -157,7 +157,7 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <!-- picks Modal -->
+ <!-- picks Modal -->
   <div class="modal fade" id="picks" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -167,18 +167,19 @@
         </div>
         <!--窗口主体-->
         <div class="modal-body">
-            <form action="" method="POST" class="form-horizontal" id="picksForm" role="form">
+            <form class="form-horizontal" id="picksForm" role="form" enctype="multipart/form-data" 
+            action="/web1/lost_and_found/index.php/Home/Index/UpFile/upload"">
               <div class="form-group">
                 <label for="pc_thing_name" class="col-sm-3 control-label">物品名称：</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="pc_things_name" name="pc_thing_name" placeholder="物品名称">
+                  <input type="text" class="form-control" id="pc_thing_name" placeholder="物品名称">
                 </div>
               </div>
                 
-               <div class="form-group">
+                <div class="form-group">
                 <label for="type" class="col-sm-3 control-label">类型：</label>
                 <div class="col-xs-6">
-              <select class="form-control">
+              <select class="form-control" id="pc_type">
                  <option id="inlineCheckbox1" value="book"> 书本文具</option>
                 <option  id="inlineCheckbox2" value="electricity"> 电子产品</option>
                 <option  id="inlineCheckbox3" value="car"> 卡片证件</option>
@@ -189,16 +190,16 @@
             </div>
             </div>
               <div class="form-group">
-                    <label for="pc_place" class="col-sm-3 control-label">地点：</label>
+                    <label for="ls_place" class="col-sm-3 control-label">地点：</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="pc_place" name="pc_place" placeholder="地点">
+                    <input type="text" class="form-control" id="pc_place" placeholder="地点">
                 </div>
               </div>
 
               <div class="form-group">
                     <label for="pc_datetime" class="col-sm-3 control-label">时间:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="pc_datetime" >
+                    <input type="date" class="form-control" id="pc_datetime"  placeholder="时间">
                 </div>
               </div>
 
@@ -212,17 +213,29 @@
               <div class="form-group">
                     <label for="place" class="col-sm-3 control-label">上传图片：</label>
                 <div class="col-sm-6">
-                    <input type="file" class="Input_file" name=" pc_picture">
+              
+            <label class="radio inline">
+              <input type="radio" value="0" checked="checked" name="pc_has_picture" >
+              否
+              </label>
+            <label class="radio inline">
+              <input type="radio" value="1" name="pc_has_picture">
+              是
+            </label>
+            <label>
+            <input type="file" class="Input_file" id="pc_picture" >
+            </label>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="pc_thing_des" class="col-sm-3 control-label">备注：</label>
                 <div class="col-sm-6">
-                <textarea class="form-control" rows="3" name="pc_thing_des"></textarea>
+                <textarea class="form-control" rows="3" id="pc_thing_describe"></textarea>
               </div>
               </div>
                     </form>
+                    <p id="ls_Tip">  Tips:时间不确定可以写相近的日期~</p>
                   </div>
           <!--窗口主体-->     
         <div class="modal-footer">
@@ -247,14 +260,14 @@
               <div class="form-group">
                 <label for="pc_things_name" class="col-sm-3 control-label">物品名称：</label>
                 <div class="col-sm-6">
-                  <input type="text" class="form-control" id="ls_things_name" placeholder="物品名称">
+                  <input type="text" class="form-control" id="ls_thing_name" placeholder="物品名称">
                 </div>
               </div>
                 
                 <div class="form-group">
                 <label for="type" class="col-sm-3 control-label">类型：</label>
                 <div class="col-xs-6">
-              <select class="form-control">
+              <select class="form-control" id="ls_type">
                  <option id="inlineCheckbox1" value="book"> 书本文具</option>
                 <option  id="inlineCheckbox2" value="electricity"> 电子产品</option>
                 <option  id="inlineCheckbox3" value="car"> 卡片证件</option>
@@ -274,7 +287,7 @@
               <div class="form-group">
                     <label for="pc_datetime" class="col-sm-3 control-label">时间:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="ls_datetime"  placeholder="时间">
+                    <input type="date" class="form-control" id="ls_datetime"  placeholder="时间">
                 </div>
               </div>
 
@@ -288,7 +301,18 @@
               <div class="form-group">
                     <label for="place" class="col-sm-3 control-label">上传图片：</label>
                 <div class="col-sm-6">
-                    <input type="file" class="Input_file" id=" ls_picture" >
+              
+            <label class="radio inline">
+              <input type="radio" value="0" checked="checked" name="ls_has_picture">
+              否
+              </label>
+            <label class="radio inline">
+              <input type="radio" value="1" name="ls_has_picture">
+              是
+            </label>
+            <label>
+            <input type="file" class="Input_file" id="ls_picture" >
+            </label>
                 </div>
               </div>
 
@@ -299,6 +323,7 @@
               </div>
               </div>
                     </form>
+                    <p id="ls_Tip">  Tips:时间不确定可以写相近的日期~</p>
                   </div>
           <!--窗口主体-->     
         <div class="modal-footer">
@@ -351,5 +376,6 @@
     <script src="Public/js/login.js"></script>
     <script src="Public/js/function.js"></script>
     <script src="Public/js/formhandle.js"></script>
+    <script src="Public/js/placeholder.js"></script>
   </body>
 </html>
