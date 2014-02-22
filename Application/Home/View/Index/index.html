@@ -17,7 +17,7 @@
 
   <body>
   	<div id="myHead">
-		<img id="headImg" src="Public/img/return-back.png"/>
+      <a href="http://herald.seu.edu.cn"><img id="headImg" src="Public/img/return-back.png"/></a>
 		<div id="myTitle">
 			<div id="myTitle1"><strong>失物招领</strong></div>
 			<div id="myTitle2">您口袋的小补丁</div>
@@ -42,12 +42,12 @@
 			    	<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="allInfo">全部信息</button></li>
   					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="othersPick">有人捡到</button></li>
   					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="othersLose">有人丢失</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#picks">我捡到了…</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了…</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#picks">我捡到了</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了</button></li>
 			    </ul>
           <ul class="nav navbar-nav">
-            <li class="toolButton"><button type="button" class="btn btn-success navbar-btn" data-toggle="modal" data-target="#filter">类型筛选</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-info navbar-btn">成绩展示</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-success navbar-btn" id="filterBtn">类型筛选</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-info navbar-btn" id="achievements">成绩展示</button></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -327,7 +327,7 @@
   	<div class="vBar2" id="someoneLose2">有人丢失</div>
   	<div class="vBar2" id="ILose2">我捡到了...</div>
   	<div class="vBar2" id="IPick2">我弄丢了...</div>
-  	<div class="vBar2" id="ourHonor2" data-toggle="modal" data-target="#filter">类型筛选</div>
+  	<div class="vBar2" id="ourHonor2">类型筛选</div>
 
     <div id="secondHead"></div>
 

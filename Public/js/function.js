@@ -1,6 +1,7 @@
 //全局变量
 	var globalLoseId=0;
 	var globalPickId=0;
+	var globalIfAchievements=false;
 	var addNum=2;	//设置每次加载的个数 
 	var addButton=new addButtonClass();
 	var typeSelect=new Array();
@@ -29,7 +30,32 @@ jQuery(document).ready(function(){
 	$("#othersLose").click(function(){othersLose();});
 	$("#someoneLose2").click(function(){othersLose();});
 
+	$("#filterBtn").click(function(){
+		if(globalIfAchievements==false){
+			$("#filter").modal();
+		}else{
+			alert("不好意思，这里不能进行类型筛选");
+		}
+	});
+
+	$("#ourHonor2").click(function(){
+		if(globalIfAchievements==false){
+			$("#filter").modal();
+		}else{
+			alert("不好意思，这里不能进行类型筛选");
+		}
+	});
+
 	$("#filterOK").click(function(){filterOK();});
+
+	$("#achievements").click(function(){
+		if(!globalIfAchievements){
+			globalLoseId=0;
+			globalPickId=0;
+			globalIfAchievements=true;
+			achievements(globalLoseId, globalPickId, addNum, true);
+		}
+	});
 
 });
 
@@ -90,9 +116,15 @@ function addButtonClass(){
 	btn.stop=function(){
 		ifLoading=false;
 		$("#addmore").html("加载更多");
-		$("#addmore").click(function(){
-			addContent(globalLoseId, globalPickId, addNum);
-		});
+		if(globalIfAchievements==false){
+			$("#addmore").click(function(){
+				addContent(globalLoseId, globalPickId, addNum);
+			});
+		}else{
+			$("#addmore").click(function(){
+				achievements(globalLoseId, globalPickId, addNum, false);
+			});
+		}
 	}
 	btn.noMore=function(){
 		$("#addmore").html("已全部加载");
@@ -147,38 +179,77 @@ function detail(infoType, detailId){
 }
 
 function allInfo(){
-	if(!(globalLoseId>=0 && globalPickId>=0)){	//筛选方向有变化
+	if(!(globalLoseId>=0 && globalPickId>=0 && globalIfAchievements==false)){	//筛选方向有变化
 		globalLoseId=0;
 		globalPickId=0;
+		globalIfAchievements=false;
 		addContent(globalLoseId, globalPickId, addNum, true);
 	}
 }
 
 function othersPick(){
-	if(!(globalLoseId<0 && globalPickId>=0)){	//筛选方向有变化
+	if(!(globalLoseId<0 && globalPickId>=0 && globalIfAchievements==false)){	//筛选方向有变化
 		globalLoseId=-1;
 		globalPickId=0;
+		globalIfAchievements=false;
 		addContent(globalLoseId, globalPickId, addNum, true);
 	}
 }
 
 function othersLose(){
-	if(!(globalLoseId>=0 && globalPickId<0)){	//筛选方向有变化
+	if(!(globalLoseId>=0 && globalPickId<0 && globalIfAchievements==false)){	//筛选方向有变化
 		globalLoseId=0;
 		globalPickId=-1;
+		globalIfAchievements=false;
 		addContent(globalLoseId, globalPickId, addNum ,true);
 	}
 }
 
-function filterOK(){	
-		typeSelect["stationery"]=$("#stationery").is(":checked");
-		typeSelect["electronic"]=$("#electronic").is(":checked");
-		typeSelect["card"]=$("#card").is(":checked");
-		typeSelect["money"]=$("#money").is(":checked");
-		typeSelect["keys"]=$("#keys").is(":checked");
-		typeSelect["others"]=$("#others").is(":checked");
-		if(globalLoseId>0) globalLoseId=0;
-		if(globalPickId>0) globalPickId=0;
-		$("#filter").modal('hide');
-		addContent(globalLoseId, globalPickId, addNum ,true);
+function filterOK(){
+	typeSelect["stationery"]=$("#stationery").is(":checked");
+	typeSelect["electronic"]=$("#electronic").is(":checked");
+	typeSelect["card"]=$("#card").is(":checked");
+	typeSelect["money"]=$("#money").is(":checked");
+	typeSelect["keys"]=$("#keys").is(":checked");
+	typeSelect["others"]=$("#others").is(":checked");
+	if(globalLoseId>0) globalLoseId=0;
+	if(globalPickId>0) globalPickId=0;
+	$("#filter").modal('hide');
+	addContent(globalLoseId, globalPickId, addNum ,true);
+}
+
+function achievements(loseId,pickId,addCount,clean){
+	addButton.loading();
+	$.ajax({
+		url:'index.php/Home/AddContent/achievements',
+		type:'post',
+		dataType:'json',
+		data:{"loseId": loseId, "pickId": pickId, "addCount": addCount,},
+		success:function(data){
+			globalLoseId=data.loseId;
+			globalPickId=data.pickId;
+		//	alert("loseid:"+globalLoseId+"  pickid:"+globalPickId);
+			if(clean){
+				if(data.content!=undefined){
+					$("#content-inner").html(data.content);
+				}else{
+					$("#content-inner").html("");
+				}
+			}else{
+				$("#content-inner").append(data.content);
+			}
+
+			if(data.ifEnd){
+				addButton.noMore();
+			}else{
+				addButton.stop();
+			}
+			winResize();
+			reBindConFun();
+		},
+		error:function(){
+			alert("很抱歉，网络错误，请稍后重试");
+			addButton.stop();
+		}
+	});
 }

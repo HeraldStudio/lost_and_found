@@ -30,14 +30,14 @@
       <button 
       <?php
  if($infoType=="con-pick"){ ?>
-      class="btn btn-default btn-xs btnPick comment" 
+      class="btn btn-primary btn-xs btnPick comment" 
       <?php
  }else{ ?>
-      class="btn btn-default btn-xs btnLose comment" 
+      class="btn btn-primary btn-xs btnLose comment" 
       <?php
  } ?>
 
-      id="<?php echo ($content_id); ?>">评论</button>
+      id="<?php echo ($content_id); ?>"><span class="glyphicon glyphicon-comment"></span> 评论</button>
       <button 
       <?php
  if($infoType=="con-pick"){ ?>
@@ -47,7 +47,7 @@
         class="btn btn-danger btn-xs btnLose detail"
       <?php
  } ?>
-       id="<?php echo ($content_id); ?>">详情</button>
+       id="<?php echo ($content_id); ?>"><span class="glyphicon glyphicon-list-alt"></span> 详情</button>
     </p>
   </div>
 </div>
