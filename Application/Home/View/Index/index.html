@@ -329,7 +329,11 @@
   	<div class="vBar2" id="IPick2">我弄丢了...</div>
   	<div class="vBar2" id="ourHonor2">类型筛选</div>
 
-    <div id="secondHead"></div>
+    <div id="secondHead">
+      <img src="Public/img/seu.png" id="seuLogo">
+      <img src="Public/img/herald.png" id="heraldLogo">
+      <div id="secondTitle"><h2>东南大学先声网 http://herald.seu.edu.cn</h2></div>
+    </div>
 
     <div id="container">
         <div id="content-inner"></div>

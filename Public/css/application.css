@@ -7,8 +7,9 @@ body
 {
 	width:100%;
 	height:230px;
-	//background-color:rgba(4, 18, 27, 0.88);
-	background-color:#336666;
+	//background-color:rgba(51, 153, 0, 0.91);
+	background-color:rgba(102, 51, 153, 0.91);
+	//background-color:#336666;
 	//background-color:#669966;
 	position:fixed;
 	z-index:2;
@@ -213,6 +214,36 @@ body
 	width:100%;
 	height:230px;
 	background-color: #CCFFCC;
+	//background-color: #006699;
+}
+
+#seuLogo
+{
+	position:absolute;
+	width:125px;
+	height:125px;
+	margin-top:30px;
+	right: 350px;
+}
+
+#heraldLogo
+{
+	position:absolute;
+	width:125px;
+	height:118px;
+	margin-top:30px;
+	right: 150px;
+}
+
+#secondTitle
+{
+	position: absolute;
+}
+
+#secondTitle h2
+{
+	margin-top:110px;
+	margin-left:200px;
 }
 
 .glyphicon-log-in,
