@@ -11,7 +11,8 @@ class FormHandleController extends Controller{
             "thing_describe" => I('thing_describe'),
             "type" =>I('type'),
             "if_has_picture" =>I('if_has_picture'),
-            "update_time" =>date('Y-m-d H:i:s')
+            "update_time" =>date('Y-m-d H:i:s'),
+            "if_give_back"=>false
             );
     	if(M('picks')->data($data)->add()){
     		$data['status']=1;
@@ -31,7 +32,8 @@ class FormHandleController extends Controller{
             "thing_describe" => I('thing_describe'),
             "type" =>I('type'),
             "if_has_picture" =>I('if_has_picture'),
-            "update_time" =>date('Y-m-d H:i:s')
+            "update_time" =>date('Y-m-d H:i:s'),
+            "if_find"=>false
             );
         if(M('loses')->data($data)->add()){
             $data['status']=1;
