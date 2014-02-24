@@ -297,9 +297,7 @@ body
 	margin-left: 150px;
 	margin-right: 50px;
 	margin-top: 35px;
-	margin-bottom: 25px;
-
-	//height:1400px;
+	margin-bottom: 105px;
 }
 
 .content
@@ -381,13 +379,15 @@ body
 
 #foot
 {
-	//position:relative;
+	position:fixed;
+	bottom:0px;
 	height:80px;
 	width:100%;
 	background-color:#FFFFFF;
 	-webkit-box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+	z-index:3;
 }
 
 #foot h5

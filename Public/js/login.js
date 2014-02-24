@@ -32,8 +32,10 @@ jQuery(document).ready(function($) {
 					$("#account").html(userInfo.truename+'<span class="glyphicon glyphicon-user"></span><b class="caret"></b>');
 					$("#loginButton").addClass("disabled");
 					$("#logoutButton").removeClass("disabled");
+					$("#manageButton").removeClass("disabled");
 					$("#loginButton").unbind();
-					$("#logoutButton").click(function(){logout();});
+					$("#logoutButton").click(function(){ logout(); });
+					$("#manageButton").click(function(){ manage(); });
 				}else{
 					$("#logInfo").removeClass("hidden");
 					$("#logInfo").removeClass("alert-success");
@@ -69,7 +71,9 @@ function logout(){
 				$("#loginModal").modal();
 			});
 			$("#logoutButton").addClass("disabled");
+			$("#manageButton").addClass("disabled");
 			$("#logoutButton").unbind();
+			$("#manageButton").unbind();
 			$("#account").html('账户<span class="glyphicon glyphicon-user"></span><b class="caret"></b>');
 			$("#logInfo").removeClass("alert-danger");
 			$("#logInfo").removeClass("alert-success");
@@ -89,6 +93,11 @@ function logout(){
 	}
 	});
 }
+
+function manage(){
+	window.open("index.php/Home/Manage/index");
+}
+
 
 /*
 	$("#submit").click(function() {

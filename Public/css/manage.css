@@ -1,0 +1,18 @@
+#foot
+{
+	position:fixed;
+	bottom:0px;
+	height:80px;
+	width:100%;
+	background-color:#FFFFFF;
+	-webkit-box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+}
+
+#foot h5
+{
+	text-align:center;
+	color:#666;
+	padding-top:25px;
+}
