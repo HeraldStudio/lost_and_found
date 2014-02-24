@@ -39,15 +39,15 @@
 			  <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav" id="tool">
-			    	<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="allInfo">全部信息</button></li>
-  					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="othersPick">有人捡到</button></li>
-  					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="othersLose">有人丢失</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#picks">我捡到了</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了</button></li>
+			    	<li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="allInfo">全部信息</button></li>
+  					<li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="othersPick">有人捡到</button></li>
+  					<li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="othersLose">有人丢失</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#picks">我捡到了</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了</button></li>
 			    </ul>
           <ul class="nav navbar-nav">
-            <li class="toolButton"><button type="button" class="btn btn-success navbar-btn" id="filterBtn">类型筛选</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-info navbar-btn" id="achievements">成绩展示</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="filterBtn">类型筛选</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="achievements">成绩展示</button></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -59,6 +59,8 @@
                 <li id="loginButton"><a href="#">登 陆<span class="glyphicon glyphicon-log-in"></span></a></li>
                 <li class="divider"></li>
                 <li id="logoutButton" class="disabled"><a href="#">退 出<span class="glyphicon glyphicon-log-out"></span></a></li>
+                <li class="divider"></li>
+                <li id="logoutButton" class="disabled"><a href="#">管 理<span class="glyphicon glyphicon-tower"></span></a></li>
               </ul>
             </li>
           </ul>
@@ -168,7 +170,7 @@
         <!--窗口主体-->
         <div class="modal-body">
             <form class="form-horizontal" id="picksForm" role="form" enctype="multipart/form-data" 
-            action="__URL__/UpFile/upload"">
+            action="__URL__/UpFile/upload">
               <div class="form-group">
                 <label for="pc_thing_name" class="col-sm-3 control-label">物品名称：</label>
                 <div class="col-sm-6">
@@ -355,10 +357,30 @@
   	<div class="vBar2" id="ourHonor2">类型筛选</div>
 
     <div id="secondHead">
-      <img src="Public/img/seu.png" id="seuLogo">
       <img src="Public/img/herald.png" id="heraldLogo">
-      <div id="secondTitle"><h2>东南大学先声网 http://herald.seu.edu.cn</h2></div>
+      <div id="secondTitle"><h2>东南大学先声网 - 网络先驱的声音</h2></div>
     </div>
+
+   <!-- Modal detail -->
+    <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" aria-hidden="true" id="closeDetail">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">详细信息</h4>
+          </div>
+          <div class="modal-body" id="detail-content">
+          <!--窗口主体-->
+
+          <!--窗口主体-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default"  id="closeDetail2">关闭</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
 
     <div id="container">
         <div id="content-inner"></div>

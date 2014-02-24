@@ -8,7 +8,8 @@ body
 	width:100%;
 	height:230px;
 	//background-color:rgba(51, 153, 0, 0.91);
-	background-color:rgba(102, 51, 153, 0.91);
+	background-color:rgb(102, 51, 153);
+	opacity:0.91;
 	//background-color:#336666;
 	//background-color:#669966;
 	position:fixed;
@@ -34,14 +35,16 @@ body
 #myTitle1
 {
 	float:left;
-	color:rgb(222,69,91);
+//	color:rgb(222,69,91);
+	color:white;
 	font-size:50px;
 }
 
 #myTitle2
 {
 	float:left;
-	color:rgb(240,239,220);	
+//	color:rgb(240,239,220);	
+	color:white;
 	font-size:25px;
 	margin-left:10px;
 	position:relative;
@@ -53,13 +56,12 @@ body
 	width:100%;
 	height:50px;
 	margin-top: 68px;
-
 }
 
 .navbar
 {
-	background-color:#CCCC99;
-	border-color:#CCCC99;
+//	background-color:#CCCC99;
+//	border-color:#CCCC99;
 	box-shadow: 5px 5px 5px #e6e6e6;
 }
 
@@ -213,7 +215,7 @@ body
 {
 	width:100%;
 	height:230px;
-	background-color: #CCFFCC;
+	//background-color: #CCFFCC;
 	//background-color: #006699;
 }
 
@@ -247,7 +249,8 @@ body
 }
 
 .glyphicon-log-in,
-.glyphicon-log-out
+.glyphicon-log-out,
+.glyphicon-tower
 {
 	margin-left:50px;
 }
@@ -392,4 +395,58 @@ body
 	text-align:center;
 	color:#666;
 	padding-top:25px;
+}
+
+#detail .modal-dialog
+{
+	width:900px;
+}
+
+#detailImg
+{
+	padding:5px;
+	border-radius:5px;
+	border: 1px solid #ddd;
+	width:400px;
+	height:400px;
+	float:left;
+}
+
+#detailRight
+{
+	float:left;
+}
+
+#detailInfo
+{
+	width:300px;
+	margin-left: 20px;
+	padding-left: 20px;
+	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-bottom-left-radius: 5px;
+
+}
+
+#detailComment
+{
+	width:300px;
+	margin-left: 20px;
+	margin-top: 10px;
+	padding-left: 20px;
+	border-left: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	border-top-left-radius: 5px;
+	height:100px;
+}
+
+#detailComment h4
+{
+	background: -webkit-linear-gradient(top, rgba(70, 70, 70, 1) 0%,rgba(111, 111, 111, 1) 50%,rgba(10, 14, 10, 1) 51%,rgba(10, 8, 9, 1) 100%);
+	-webkit-box-reflect: below -7px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.2, transparent), to(rgba(3,3,3,.1)));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	transition: .5s;
 }

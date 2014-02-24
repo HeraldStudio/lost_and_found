@@ -229,4 +229,9 @@ $("#closeFilter").click(function(){
 $("#closeFilter2").click(function(){
 	$("#filter").modal('hide');
 });
-
+$("#closeDetail").click(function(){
+	$("#detail").modal('hide');
+});
+$("#closeDetail2").click(function(){
+	$("#detail").modal('hide');
+});

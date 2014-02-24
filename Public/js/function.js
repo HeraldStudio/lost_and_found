@@ -2,7 +2,7 @@
 	var globalLoseId=0;
 	var globalPickId=0;
 	var globalIfAchievements=false;
-	var addNum=2;	//设置每次加载的个数 
+	var addNum=3;	//设置每次加载的个数 
 	var addButton=new addButtonClass();
 	var typeSelect=new Array();
 		typeSelect["stationery"]=true;
@@ -76,6 +76,10 @@ function addContent(loseId,pickId,addCount,clean){	//count为加载的数量
 			}
 		},
 		success:function(data){
+			if(data.status=="error"){
+				alert("无效请求，请正常操作");
+				return;
+			}
 			globalLoseId=data.loseId;
 			globalPickId=data.pickId;
 		//	alert("loseid:"+globalLoseId+"  pickid:"+globalPickId);
@@ -175,7 +179,27 @@ function comment(infoType, commentId){
 }
 
 function detail(infoType, detailId){
-	alert(infoType+" detail"+detailId);
+	$.ajax({
+		url:'index.php/Home/Detail/index',
+		type:'post',
+		dataType:'json',
+		data:{"infoType": infoType, "id": detailId },
+		success:function(data){
+			if(data.status==1){
+				alert("很抱歉，查看详细信息需要登录，请您先登录");
+				return;
+			}
+			if(data.status==2){
+				alert("无效请求，请您正常操作");
+				return;
+			}
+			$("#detail-content").html(data.content);
+			$("#detail").modal();
+		},
+		error:function(){
+			alert("很抱歉，网络错误，请稍后重试");
+		}
+	});
 }
 
 function allInfo(){

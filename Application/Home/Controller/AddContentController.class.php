@@ -26,23 +26,23 @@ class AddContentController extends Controller{
 
 		for($i=0; $i<count($outputArray); $i++)	//调用view
 		{
-			//对图片进行尺寸设置
-			$conWidth=238; $conHeight=178;	//设置容器尺寸，修改时只对此一处进行修改
-			$image->open($outputArray[$i]["picture_url"]);
-			$width=$image->width();
-			$height=$image->height();
-			if($width/$height > $conWidth/$conHeight){
-				$outputArray[$i]["width"]=$conWidth;
-				$outputArray[$i]["height"]=$height/$width*$conWidth;
-				$outputArray[$i]["marginLeft"]=0;
-				$outputArray[$i]["marginTop"]=($conHeight-$outputArray[$i]["height"])/2;
-			}else{
-				$outputArray[$i]["height"]=$conHeight;
-				$outputArray[$i]["width"]=$width/$height*$conHeight;
-				$outputArray[$i]["marginTop"]=0;
-				$outputArray[$i]["marginLeft"]=($conWidth-$outputArray[$i]["width"])/2;
-			}
-			//'
+				//对图片进行尺寸设置
+				$conWidth=238; $conHeight=178;	//设置容器尺寸，修改时只对此一处进行修改
+				$image->open($outputArray[$i]["picture_url"]);
+
+				$width=$image->width();
+				$height=$image->height();
+				if($width/$height > $conWidth/$conHeight){
+					$outputArray[$i]["width"]=$conWidth;
+					$outputArray[$i]["height"]=$height/$width*$conWidth;
+					$outputArray[$i]["marginLeft"]=0;
+					$outputArray[$i]["marginTop"]=($conHeight-$outputArray[$i]["height"])/2;
+				}else{
+					$outputArray[$i]["height"]=$conHeight;
+					$outputArray[$i]["width"]=$width/$height*$conHeight;
+					$outputArray[$i]["marginTop"]=0;
+					$outputArray[$i]["marginLeft"]=($conWidth-$outputArray[$i]["width"])/2;
+				}
 
 			$this->assign($outputArray[$i]);
 			$returnInfo["content"]=$returnInfo["content"].$this->fetch("AddContent");
@@ -112,6 +112,7 @@ class AddContentController extends Controller{
 				$returnInfo["pickId"]=$outputArray[$i]["content_id"];
 			}
 		}
+		$returnInfo["status"]="success";
 		echo json_encode($returnInfo);
 	}
 
