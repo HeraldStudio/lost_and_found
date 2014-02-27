@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-	$('#login').click(function(event) {
+	$('#login').click(function() {
 		var username = $('#username').val();
 		var password = $('#password').val();
 		if (username == ''){
@@ -36,6 +36,7 @@ jQuery(document).ready(function($) {
 					$("#loginButton").unbind();
 					$("#logoutButton").click(function(){ logout(); });
 					$("#manageButton").click(function(){ manage(); });
+					setTimeout('$("#loginModal").modal("hide")',500);
 				}else{
 					$("#logInfo").removeClass("hidden");
 					$("#logInfo").removeClass("alert-success");
@@ -51,9 +52,17 @@ jQuery(document).ready(function($) {
 		});
 	});
 
-	$("#loginButton").click(function(){
-		$("#loginModal").modal();
-	});
+	if( !$("#loginButton").hasClass("disabled") ){
+		$("#loginButton").click(function(){ $("#loginModal").modal(); });
+	}
+
+	if( !$("#logoutButton").hasClass("disabled") ){
+		$("#logoutButton").click(function(){ logout(); });
+	}
+
+	if( !$("#manageButton").hasClass("disabled") ){
+		$("#manageButton").click(function(){ manage(); });
+	}	
 
 });
 

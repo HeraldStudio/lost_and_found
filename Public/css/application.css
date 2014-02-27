@@ -1,3 +1,9 @@
+html,body {
+	margin: 0;
+	padding:0;
+	height: 100%;
+}
+
 body
 {
 	background-image:url(../img/dust.png);
@@ -255,14 +261,10 @@ body
 	margin-left:50px;
 }
 
-.loginInputBox
+#loginForm
 {
-	margin-bottom: 10px;
-}
-
-.loginLabel
-{
-	float: left;
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 .loginInput
@@ -297,7 +299,17 @@ body
 	margin-left: 150px;
 	margin-right: 50px;
 	margin-top: 35px;
-	margin-bottom: 105px;
+	margin-bottom: 25px;
+}
+
+#con-border
+{
+	min-height: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 80px;
+	margin-bottom: 0;
 }
 
 .content
@@ -379,8 +391,7 @@ body
 
 #foot
 {
-	position:fixed;
-	bottom:0px;
+	margin-top: -90px;
 	height:80px;
 	width:100%;
 	background-color:#FFFFFF;

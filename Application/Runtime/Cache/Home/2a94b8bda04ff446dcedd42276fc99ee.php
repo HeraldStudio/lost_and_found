@@ -39,26 +39,28 @@
 			  <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			    <ul class="nav navbar-nav" id="tool">
-			    	<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="allInfo">全部信息</button></li>
-  					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="othersPick">有人捡到</button></li>
-  					<li class="toolButton"><button type="button" class="btn btn-primary navbar-btn" id="othersLose">有人丢失</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#picks">我捡到了</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-warning navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了</button></li>
+			    	<li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="allInfo">全部信息</button></li>
+  					<li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="othersPick">有人捡到</button></li>
+  					<li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="othersLose">有人丢失</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#picks">我捡到了</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了</button></li>
 			    </ul>
           <ul class="nav navbar-nav">
-            <li class="toolButton"><button type="button" class="btn btn-success navbar-btn" id="filterBtn">类型筛选</button></li>
-            <li class="toolButton"><button type="button" class="btn btn-info navbar-btn" id="achievements">成绩展示</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="filterBtn">类型筛选</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="achievements">成绩展示</button></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="account">
-                账户<span class="glyphicon glyphicon-user"></span><b class="caret"></b>
+                <?php echo ($username); ?><span class="glyphicon glyphicon-user"></span><b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li id="loginButton"><a href="#">登 陆<span class="glyphicon glyphicon-log-in"></span></a></li>
+                <li id="loginButton" class="<?php echo ($class1); ?>"><a href="#">登 陆<span class="glyphicon glyphicon-log-in"></span></a></li>
                 <li class="divider"></li>
-                <li id="logoutButton" class="disabled"><a href="#">退 出<span class="glyphicon glyphicon-log-out"></span></a></li>
+                <li id="logoutButton" class="<?php echo ($class2); ?>"><a href="#">退 出<span class="glyphicon glyphicon-log-out"></span></a></li>
+                <li class="divider"></li>
+                <li id="manageButton" class="<?php echo ($class2); ?>"><a href="#">管 理<span class="glyphicon glyphicon-tower"></span></a></li>
               </ul>
             </li>
           </ul>
@@ -89,14 +91,14 @@
           <!--窗口主体-->
             <form class="form-horizontal" id="loginForm" role="form">
               <div class="form-group">
-                <label for="username" class="col-sm-2 control-label">用户名：</label>
+                <label for="username" class="col-sm-3 control-label">用户名：</label>
                 <div class="loginInput">
                   <input type="username" class="form-control" id="username" placeholder="用户名">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="passward" class="col-sm-2 control-label">密码：</label>
+                <label for="passward" class="col-sm-3 control-label">密码：</label>
                 <div class="loginInput">
                   <input type="password" class="form-control" id="password" placeholder="密码">
                 </div>
@@ -168,7 +170,7 @@
         <!--窗口主体-->
         <div class="modal-body">
             <form class="form-horizontal" id="picksForm" role="form" enctype="multipart/form-data" 
-            action="/web1/lost_and_found/index.php/Home/Index/UpFile/upload"">
+            action="/lost_and_found/index.php/Home/Index/UpFile/upload">
               <div class="form-group">
                 <label for="pc_thing_name" class="col-sm-3 control-label">物品名称：</label>
                 <div class="col-sm-6">
@@ -180,11 +182,11 @@
                 <label for="type" class="col-sm-3 control-label">类型：</label>
                 <div class="col-xs-6">
               <select class="form-control" id="pc_type">
-                 <option id="inlineCheckbox1" value="book"> 书本文具</option>
-                <option  id="inlineCheckbox2" value="electricity"> 电子产品</option>
-                <option  id="inlineCheckbox3" value="car"> 卡片证件</option>
+                 <option id="inlineCheckbox1" value="stationery"> 书本文具</option>
+                <option  id="inlineCheckbox2" value="electronic"> 电子产品</option>
+                <option  id="inlineCheckbox3" value="card"> 卡片证件</option>
                 <option  id="inlineCheckbox4" value="money"> 钱包钱币</option>
-                <option  id="inlineCheckbox5" value="key"> 钥匙挂件</option>
+                <option  id="inlineCheckbox5" value="keys"> 钥匙挂件</option>
                 <option  id="inlineCheckbox6" value="others"> 其它等等</option>
               </select>
             </div>
@@ -268,11 +270,11 @@
                 <label for="type" class="col-sm-3 control-label">类型：</label>
                 <div class="col-xs-6">
               <select class="form-control" id="ls_type">
-                 <option id="inlineCheckbox1" value="book"> 书本文具</option>
-                <option  id="inlineCheckbox2" value="electricity"> 电子产品</option>
-                <option  id="inlineCheckbox3" value="car"> 卡片证件</option>
+                 <option id="inlineCheckbox1" value="stationery"> 书本文具</option>
+                <option  id="inlineCheckbox2" value="electronic"> 电子产品</option>
+                <option  id="inlineCheckbox3" value="card"> 卡片证件</option>
                 <option  id="inlineCheckbox4" value="money"> 钱包钱币</option>
-                <option  id="inlineCheckbox5" value="key"> 钥匙挂件</option>
+                <option  id="inlineCheckbox5" value="keys"> 钥匙挂件</option>
                 <option  id="inlineCheckbox6" value="others"> 其它等等</option>
               </select>
             </div>
@@ -354,23 +356,44 @@
   	<div class="vBar2" id="IPick2">我弄丢了...</div>
   	<div class="vBar2" id="ourHonor2">类型筛选</div>
 
-    <div id="secondHead">
-      <img src="Public/img/seu.png" id="seuLogo">
-      <img src="Public/img/herald.png" id="heraldLogo">
-      <div id="secondTitle"><h2>东南大学先声网 http://herald.seu.edu.cn</h2></div>
-    </div>
+   <!-- Modal detail -->
+    <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" aria-hidden="true" id="closeDetail">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">详细信息</h4>
+          </div>
+          <div class="modal-body" id="detail-content">
+          <!--窗口主体-->
 
-    <div id="container">
-        <div id="content-inner"></div>
-        <div class="clear"></div>
-        <div id="addmore" class="btn btn-default">加载更多</div>
-    </div>
-    
+          <!--窗口主体-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default"  id="closeDetail2">关闭</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 
+    <div id="con-border">
+      <div id="secondHead">
+        <img src="Public/img/herald.png" id="heraldLogo">
+        <div id="secondTitle"><h2>东南大学先声网 - 网络先驱的声音</h2></div>
+      </div>
+
+      <div id="container">
+          <div id="content-inner"></div>
+          <div class="clear"></div>
+          <div id="addmore" class="btn btn-default">加载更多</div>
+      </div>
+    </div>
 
     <div id="foot">
-      <h5> CopyRight © 2001-2014 Herald.seu.edu.cn</h5>
+      <h5> Copyright © 2001-2014 Herald.seu.edu.cn</h5>
     </div>
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="Public/js/jquery.js"></script>

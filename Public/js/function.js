@@ -122,7 +122,7 @@ function addButtonClass(){
 		$("#addmore").html("加载更多");
 		if(globalIfAchievements==false){
 			$("#addmore").click(function(){
-				addContent(globalLoseId, globalPickId, addNum);
+				addContent(globalLoseId, globalPickId, addNum, false);
 			});
 		}else{
 			$("#addmore").click(function(){
