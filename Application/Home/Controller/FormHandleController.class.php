@@ -13,9 +13,9 @@ class FormHandleController extends Controller{
             "if_has_picture" =>I('if_has_picture'),
             "update_time" =>date('Y-m-d H:i:s'),
             "if_give_back"=>false
-            );
+            );      
     	if(M('picks')->data($data)->add()){
-    		$data['status']=1;
+            $data['status']=1;
             $this->AjaxReturn($data,'json');
         }else{
         	$data['status']=0;
