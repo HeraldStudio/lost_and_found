@@ -22,6 +22,26 @@ jQuery(document).ready(function() {
 			ls_datetime.focus();
 			return;
 	}
+
+	$.ajaxFileUpload
+				        (
+				            {
+				                url:'index.php/home/UpFile/upload', 
+				                secureuri:false,
+				                fileElementId:'pc_picture',
+				                dataType: 'json',
+				                success: function (data, status)
+				                {
+				                    data;
+				                },
+				                error: function (data, status, e)
+				                {
+				                    alert(e);
+				                }
+				            }
+				        )
+
+				        
 	$.post('index.php/home/FormHandle/picksform',
 	{'thing_name':thing_name,'type':type,'place':place,'datetime':datetime,'contact':contact,'thing_describe':thing_describe,'if_has_picture':if_has_picture},
 		function(data){
@@ -58,6 +78,25 @@ jQuery(document).ready(function() {
 			ls_datetime.focus();
 			return;
 	}
+
+	$.ajaxFileUpload
+				        (
+				            {
+				                url:'index.php/home/UpFile/lupload', 
+				                secureuri:false,
+				                fileElementId:'ls_picture',
+				                dataType: 'json',
+				                success: function (data, status)
+				                {
+				                    data;
+				                },
+				                error: function (data, status, e)
+				                {
+				                    alert(e);
+				                }
+				            }
+				        )
+
 	$.post('index.php/home/FormHandle/losesform',
 	{'thing_name':thing_name,'type':type,'place':place,'datetime':datetime,'contact':contact,'thing_describe':thing_describe,'if_has_picture':if_has_picture},
 		function(data){
@@ -70,4 +109,5 @@ jQuery(document).ready(function() {
 			}
 		},'json');
 	});
+
 });

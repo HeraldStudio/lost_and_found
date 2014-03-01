@@ -22,29 +22,29 @@
 			<div id="myTitle1"><strong>失物招领</strong></div>
 			<div id="myTitle2">您口袋的小补丁</div>
 		</div>
+    
+    <div id="nav">
+      <nav class="navbar navbar-default" id="navbar" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand"><strong>失物招领</strong></a>
+        </div>
 
-		<div id="nav">
-			<nav class="navbar navbar-default" id="navbar" role="navigation">
-			  <!-- Brand and toggle get grouped for better mobile display -->
-			  <div class="navbar-header">
-			    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-			      <span class="sr-only">Toggle navigation</span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			      <span class="icon-bar"></span>
-			    </button>
-			    <a class="navbar-brand"><strong>失物招领</strong></a>
-			  </div>
-
-			  <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			    <ul class="nav navbar-nav" id="tool">
-			    	<li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="allInfo">全部信息</button></li>
-  					<li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="othersPick">有人捡到</button></li>
-  					<li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="othersLose">有人丢失</button></li>
+          <ul class="nav navbar-nav" id="tool">
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="allInfo">全部信息</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="othersPick">有人捡到</button></li>
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="othersLose">有人丢失</button></li>
             <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#picks">我捡到了</button></li>
             <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了</button></li>
-			    </ul>
+          </ul>
           <ul class="nav navbar-nav">
             <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="filterBtn">类型筛选</button></li>
             <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="achievements">成绩展示</button></li>
@@ -53,14 +53,14 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="account">
-                {$username}<span class="glyphicon glyphicon-user"></span><b class="caret"></b>
+                账户<span class="glyphicon glyphicon-user"></span><b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li id="loginButton" class="{$class1}"><a href="#">登 陆<span class="glyphicon glyphicon-log-in"></span></a></li>
+                <li id="loginButton"><a href="#">登 陆<span class="glyphicon glyphicon-log-in"></span></a></li>
                 <li class="divider"></li>
-                <li id="logoutButton" class="{$class2}"><a href="#">退 出<span class="glyphicon glyphicon-log-out"></span></a></li>
+                <li id="logoutButton" class="disabled"><a href="#">退 出<span class="glyphicon glyphicon-log-out"></span></a></li>
                 <li class="divider"></li>
-                <li id="manageButton" class="{$class2}"><a href="#">管 理<span class="glyphicon glyphicon-tower"></span></a></li>
+                <li class="disabled" id="manageButton"><a href="#">管 理<span class="glyphicon glyphicon-tower"></span></a></li>
               </ul>
             </li>
           </ul>
@@ -74,10 +74,10 @@
             </button>
           </form>
 
-			  </div><!-- /.navbar-collapse -->
-			</nav>
-		</div>
-  	</div>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+    </div>
+    </div>
 
     <!-- Modal login-->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -91,14 +91,14 @@
           <!--窗口主体-->
             <form class="form-horizontal" id="loginForm" role="form">
               <div class="form-group">
-                <label for="username" class="col-sm-3 control-label">用户名：</label>
+                <label for="username" class="col-sm-2 control-label">用户名：</label>
                 <div class="loginInput">
                   <input type="username" class="form-control" id="username" placeholder="用户名">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="passward" class="col-sm-3 control-label">密码：</label>
+                <label for="passward" class="col-sm-2 control-label">密码：</label>
                 <div class="loginInput">
                   <input type="password" class="form-control" id="password" placeholder="密码">
                 </div>
@@ -169,8 +169,7 @@
         </div>
         <!--窗口主体-->
         <div class="modal-body">
-            <form class="form-horizontal" id="picksForm" role="form" enctype="multipart/form-data" 
-            action="__URL__/UpFile/upload">
+            <form class="form-horizontal" id="picksForm" role="form" enctype="multipart/form-data" target="tarframe" method="post" name="myfile">
               <div class="form-group">
                 <label for="pc_thing_name" class="col-sm-3 control-label">物品名称：</label>
                 <div class="col-sm-6">
@@ -178,7 +177,7 @@
                 </div>
               </div>
                 
-                <div class="form-group">
+                   <div class="form-group">
                 <label for="type" class="col-sm-3 control-label">类型：</label>
                 <div class="col-xs-6">
               <select class="form-control" id="pc_type">
@@ -192,7 +191,7 @@
             </div>
             </div>
               <div class="form-group">
-                    <label for="ls_place" class="col-sm-3 control-label">地点：</label>
+                    <label for="pc_place" class="col-sm-3 control-label">地点：</label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="pc_place" placeholder="地点">
                 </div>
@@ -225,7 +224,7 @@
               是
             </label>
             <label>
-            <input type="file" class="Input_file" id="pc_picture" >
+            <input type="file" class="Input_file" id="pc_picture" name="pc_picture" >
             </label>
                 </div>
               </div>
@@ -237,6 +236,8 @@
               </div>
               </div>
                     </form>
+                    <iframe src=""  width="0" height="0" style="display:none;" name="tarframe">
+                    </iframe>
                     <p id="ls_Tip">  Tips:时间不确定可以写相近的日期~</p>
                   </div>
           <!--窗口主体-->     
@@ -258,7 +259,7 @@
         </div>
         <!--窗口主体-->
         <div class="modal-body">
-            <form class="form-horizontal" id="losesForm" role="form">
+           <form class="form-horizontal" id="losesForm" role="form" enctype="multipart/form-data" target="tariframe" method="post" name="myfile">
               <div class="form-group">
                 <label for="pc_things_name" class="col-sm-3 control-label">物品名称：</label>
                 <div class="col-sm-6">
@@ -266,7 +267,7 @@
                 </div>
               </div>
                 
-                <div class="form-group">
+               <div class="form-group">
                 <label for="type" class="col-sm-3 control-label">类型：</label>
                 <div class="col-xs-6">
               <select class="form-control" id="ls_type">
@@ -313,18 +314,20 @@
               是
             </label>
             <label>
-            <input type="file" class="Input_file" id="ls_picture" >
+            <input type="file" class="Input_file" id="ls_picture" name="ls_picture">
             </label>
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="pc_thing_des" class="col-sm-3 control-label">备注：</label>
+                <label for="ls_thing_des" class="col-sm-3 control-label">备注：</label>
                 <div class="col-sm-6">
                 <textarea class="form-control" rows="3" id="ls_thing_describe"></textarea>
               </div>
               </div>
                     </form>
+                    <iframe src=""  width="0" height="0" style="display:none;" name="tariframe">
+                    </iframe>
                     <p id="ls_Tip">  Tips:时间不确定可以写相近的日期~</p>
                   </div>
           <!--窗口主体-->     
@@ -336,27 +339,32 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 
-  	<div id="tip">
-  		失物招领
-  		<div id="tipInner">全部信息</div>
-  	</div>
-  	<img id="pin" src="Public/img/pin.png"/>
+    <div id="tip">
+      失物招领
+      <div id="tipInner">全部信息</div>
+    </div>
+    <img id="pin" src="Public/img/pin.png"/>
 
     <div class="vBar" id="allInf"></div>
-  	<div class="vBar" id="someonePick"></div>
-  	<div class="vBar" id="someoneLose"></div>
-  	<div class="vBar" id="ILose"></div>
-  	<div class="vBar" id="IPick"></div>
-  	<div class="vBar" id="ourHonor"></div>
+    <div class="vBar" id="someonePick"></div>
+    <div class="vBar" id="someoneLose"></div>
+    <div class="vBar" id="ILose"></div>
+    <div class="vBar" id="IPick"></div>
+    <div class="vBar" id="ourHonor"></div>
 
-  	<div class="vBar2" id="allInf2">全部信息</div>
-  	<div class="vBar2" id="someonePick2">有人捡到</div>
-  	<div class="vBar2" id="someoneLose2">有人丢失</div>
-  	<div class="vBar2" id="ILose2">我捡到了...</div>
-  	<div class="vBar2" id="IPick2">我弄丢了...</div>
-  	<div class="vBar2" id="ourHonor2">类型筛选</div>
+    <div class="vBar2" id="allInf2">全部信息</div>
+    <div class="vBar2" id="someonePick2">有人捡到</div>
+    <div class="vBar2" id="someoneLose2">有人丢失</div>
+    <div class="vBar2" id="ILose2">我捡到了...</div>
+    <div class="vBar2" id="IPick2">我弄丢了...</div>
+    <div class="vBar2" id="ourHonor2">类型筛选</div>
 
-   <!-- Modal detail -->
+    <div id="secondHead">
+      <img src="Public/img/herald.png" id="heraldLogo">
+      <div id="secondTitle"><h2>东南大学先声网 - 网络先驱的声音</h2></div>
+    </div>
+
+    <!-- Modal detail -->
     <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -366,6 +374,7 @@
           </div>
           <div class="modal-body" id="detail-content">
           <!--窗口主体-->
+    
 
           <!--窗口主体-->
           </div>
@@ -376,24 +385,15 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <div id="con-border">
-      <div id="secondHead">
-        <img src="Public/img/herald.png" id="heraldLogo">
-        <div id="secondTitle"><h2>东南大学先声网 - 网络先驱的声音</h2></div>
-      </div>
-
-      <div id="container">
-          <div id="content-inner"></div>
-          <div class="clear"></div>
-          <div id="addmore" class="btn btn-default">加载更多</div>
-      </div>
+    <div id="container">
+        <div id="content-inner"></div>
+        <div class="clear"></div>
+        <div id="addmore" class="btn btn-default">加载更多</div>
     </div>
 
     <div id="foot">
-      <h5> Copyright © 2001-2014 Herald.seu.edu.cn</h5>
+      <h5> CopyRight © 2001-2014 Herald.seu.edu.cn</h5>
     </div>
-
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="Public/js/jquery.js"></script>
@@ -404,5 +404,8 @@
     <script src="Public/js/function.js"></script>
     <script src="Public/js/formhandle.js"></script>
     <script src="Public/js/placeholder.js"></script>
+    <script src="Public/js/ajaxfileupload.js"></script>
+    <script src="jquery-1.6.2.min.js" ></script>
+    <script src="ajaxfileupload.js" ></script>
   </body>
 </html>
