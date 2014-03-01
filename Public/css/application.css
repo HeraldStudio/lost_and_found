@@ -36,6 +36,7 @@ body
 	padding-left:15%;
 	padding-right:15%;
 	margin-top:30px;
+
 }
 
 #myTitle1
@@ -51,6 +52,25 @@ body
 	float:left;
 //	color:rgb(240,239,220);	
 	color:white;
+	font-size:25px;
+	margin-left:10px;
+	position:relative;
+	top:25px;
+}
+
+#myTitle1b
+{
+	float:left;
+//	color:rgb(222,69,91);
+	color:blue;
+	font-size:50px;
+}
+
+#myTitle2b
+{
+	float:left;
+//	color:rgb(240,239,220);	
+	color:blue;
 	font-size:25px;
 	margin-left:10px;
 	position:relative;
@@ -241,6 +261,16 @@ body
 	height:118px;
 	margin-top:30px;
 	right: 150px;
+}
+
+#heraldLogo2
+{
+	position:absolute;
+	width:125px;
+	height:118px;
+	margin-top:0px;
+	right: 150px;
+	top:20px;
 }
 
 #secondTitle

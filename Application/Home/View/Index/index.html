@@ -17,7 +17,7 @@
 
   <body>
   	<div id="myHead">
-      <a href="http://herald.seu.edu.cn"><img id="headImg" src="Public/img/return-back.png"/></a>
+      <!--<a href="http://herald.seu.edu.cn"><img id="headImg" src="Public/img/return-back.png"/></a> -->
 		<div id="myTitle">
 			<div id="myTitle1"><strong>失物招领</strong></div>
 			<div id="myTitle2">您口袋的小补丁</div>
