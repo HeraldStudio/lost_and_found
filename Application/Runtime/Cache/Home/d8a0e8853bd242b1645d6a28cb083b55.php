@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
   <head>
   <title>失物招领个人中心</title>
@@ -58,7 +58,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="account">{$username}<span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="account"><?php echo ($username); ?><span class="glyphicon glyphicon-user"></span><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li id="loginButton" class="disabled"><a href="#">登 陆<span class="glyphicon glyphicon-log-in"></span></a></li>
                 <li class="divider"></li>
@@ -199,10 +199,7 @@
 
   
 <?php
-
-if(!$logStatus){
-
-?>
+ if(!$logStatus){ ?>
 
     <div id="logWindow">
       <div id="logHead">
@@ -227,8 +224,7 @@ if(!$logStatus){
     </div>
 
 <?php
-}else{
-?>
+}else{ ?>
 
   
 <?php
