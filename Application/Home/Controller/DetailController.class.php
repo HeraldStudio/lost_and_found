@@ -29,10 +29,12 @@ class DetailController extends Controller {
 
          //对图片进行尺寸设置
         $conWidth=390; $conHeight=390;  //设置容器尺寸，修改时只对此一处进行修改
-        $image->open($outputArray["picture_url"]);
+        list($width, $height, $type, $attr)=getimagesize($outputArray["picture_url"]);
+        if(!$type){
+            $outputArray["picture_url"]="Public/pictures/".$outputArray["type"].".jpg";
+            list($width, $height, $type, $attr)=getimagesize($outputArray["picture_url"]);
+        }
 
-        $width=$image->width();
-        $height=$image->height();
         if($width/$height > $conWidth/$conHeight){
             $outputArray["width"]=$conWidth;
             $outputArray["height"]=$height/$width*$conWidth;

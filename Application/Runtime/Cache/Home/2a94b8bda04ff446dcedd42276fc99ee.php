@@ -17,11 +17,11 @@
 
   <body>
   	<div id="myHead">
-      <!--<a href="http://herald.seu.edu.cn"><img id="headImg" src="Public/img/return-back.png"/></a> -->
 		<div id="myTitle">
 			<div id="myTitle1"><strong>失物招领</strong></div>
 			<div id="myTitle2">您口袋的小补丁</div>
 		</div>
+    <img src="Public/img/herald.png" id="heraldLogoTop">
 
     <div id="nav">
       <nav class="navbar navbar-default" id="navbar" role="navigation">
@@ -69,7 +69,7 @@
             <div class="form-group">
             <input type="text" class="form-control" id="searchInput" placeholder="Search">
             </div>
-            <button type="submit" class="btn btn-default">
+            <button type="submit" class="btn btn-default" id="search">
               <span class="glyphicon glyphicon-search"></span>
             </button>
           </form>
@@ -91,14 +91,14 @@
           <!--窗口主体-->
             <form class="form-horizontal" id="loginForm" role="form">
               <div class="form-group">
-                <label for="username" class="col-sm-2 control-label">用户名：</label>
+                <label for="username" class="col-sm-3 control-label">用户名：</label>
                 <div class="loginInput">
                   <input type="username" class="form-control" id="username" placeholder="用户名">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="passward" class="col-sm-2 control-label">密码：</label>
+                <label for="passward" class="col-sm-3 control-label">密码：</label>
                 <div class="loginInput">
                   <input type="password" class="form-control" id="password" placeholder="密码">
                 </div>
@@ -388,6 +388,7 @@
         <div id="secondTitle"><h2>东南大学先声网 - 网络先驱的声音</h2></div>
       </div>
 
+
       <div id="container">
           <div id="content-inner"></div>
           <div class="clear"></div>
@@ -409,7 +410,6 @@
     <script src="Public/js/formhandle.js"></script>
     <script src="Public/js/placeholder.js"></script>
     <script src="Public/js/ajaxfileupload.js"></script>
-    <script src="jquery-1.6.2.min.js" ></script>
     <script src="ajaxfileupload.js" ></script>
   </body>
 </html>

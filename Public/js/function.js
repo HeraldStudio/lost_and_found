@@ -57,6 +57,10 @@ jQuery(document).ready(function(){
 		}
 	});
 
+	$("#search").click(function(){
+		search();
+	});
+
 });
 
 function addContent(loseId,pickId,addCount,clean){	//count为加载的数量
@@ -276,4 +280,9 @@ function achievements(loseId,pickId,addCount,clean){
 			addButton.stop();
 		}
 	});
+}
+
+function search(){
+	var val =$("#searchInput").val();
+	alert(val);
 }

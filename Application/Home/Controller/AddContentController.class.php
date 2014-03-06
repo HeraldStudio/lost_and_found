@@ -29,7 +29,7 @@ class AddContentController extends Controller{
 			$conWidth=238; $conHeight=178;	//设置容器尺寸，修改时只对此一处进行修改
 			list($width, $height, $type, $attr)=getimagesize($outputArray[$i]["picture_url"]);
 			if(!$type){
-				$outputArray[$i]["picture_url"]="Public/pictures/default.jpg";
+				$outputArray[$i]["picture_url"]="Public/pictures/".$outputArray[$i]["type"].".jpg";
 				list($width, $height, $type, $attr)=getimagesize($outputArray[$i]["picture_url"]);
 			}
 			if($width/$height > $conWidth/$conHeight){
@@ -87,7 +87,7 @@ class AddContentController extends Controller{
 			$conWidth=238; $conHeight=178;	//设置容器尺寸，修改时只对此一处进行修改
 			list($width, $height, $type, $attr)=getimagesize($outputArray[$i]["picture_url"]);
 			if(!$type){
-				$outputArray[$i]["picture_url"]="Public/pictures/default.jpg";
+				$outputArray[$i]["picture_url"]="Public/pictures/".$outputArray[$i]["type"].".jpg";
 				list($width, $height, $type, $attr)=getimagesize($outputArray[$i]["picture_url"]);
 			}
 			if($width/$height > $conWidth/$conHeight){

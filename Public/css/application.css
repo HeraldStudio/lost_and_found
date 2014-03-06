@@ -14,19 +14,19 @@ body
 	width:100%;
 	height:230px;
 	//background-color:rgba(51, 153, 0, 0.91);
-	background-color:rgb(102, 51, 153);
-	opacity:0.91;
+	//background-color:rgb(102, 51, 153);
+	//opacity:0.95;
+	//opacity:1;
 	//background-color:#336666;
 	//background-color:#669966;
 	position:fixed;
 	z-index:2;
-}
 
-#headImg
-{
-	position: absolute;
-	top:0px;
-	left:0px;
+background-color:rgb(102, 51, 153);
+background-image: url(../img/gh-enterprise-bg1.jpg);
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
 }
 
 #myTitle
@@ -36,7 +36,6 @@ body
 	padding-left:15%;
 	padding-right:15%;
 	margin-top:30px;
-
 }
 
 #myTitle1
@@ -56,6 +55,17 @@ body
 	margin-left:10px;
 	position:relative;
 	top:25px;
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,
+	"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+#heraldLogoTop
+{
+	position: absolute;
+	width:125px;
+	height:118px;
+	margin-top:-85px;
+	right: 155px;
 }
 
 #myTitle1b
@@ -241,17 +251,6 @@ body
 {
 	width:100%;
 	height:230px;
-	//background-color: #CCFFCC;
-	//background-color: #006699;
-}
-
-#seuLogo
-{
-	position:absolute;
-	width:125px;
-	height:125px;
-	margin-top:30px;
-	right: 350px;
 }
 
 #heraldLogo
@@ -263,16 +262,6 @@ body
 	right: 150px;
 }
 
-#heraldLogo2
-{
-	position:absolute;
-	width:125px;
-	height:118px;
-	margin-top:0px;
-	right: 150px;
-	top:20px;
-}
-
 #secondTitle
 {
 	position: absolute;
@@ -280,8 +269,10 @@ body
 
 #secondTitle h2
 {
-	margin-top:110px;
-	margin-left:200px;
+	margin-top:115px;
+	margin-left:210px;
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,
+	"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
 }
 
 .glyphicon-log-in,
