@@ -5,12 +5,14 @@ class DetailModel extends Model {
 	public function addDetail($receiveInfo){
 		$tables=M();
 
-		$sqlString='select name,contact,thing_name,place,datetime,update_time,thing_describe,if_has_picture,type
+		$sqlString='select name,contact,thing_name,place,datetime,update_time,thing_describe,picture_name,type,
+			'.$receiveInfo["infoType"].'_id 
 			from '.$receiveInfo["infoType"].'s 
 			where '.$receiveInfo["infoType"].'_id = '.$receiveInfo['id'];
 		$records=$tables->query($sqlString);
 
 		$outputArray["infoType"]=$receiveInfo["infoType"];
+		$outputArray["id"]=$records[0][$receiveInfo["infoType"].'_id'];
 		$outputArray["thing_name"]=$records[0]["thing_name"];
 		$outputArray["place"]=$records[0]["place"];
 		$outputArray["datetime"]=$records[0]["datetime"];
@@ -21,14 +23,31 @@ class DetailModel extends Model {
 		$outputArray["type"]=$records[0]["type"];
 
 
-		if($records[0]["if_has_picture"]){
-			$sqlString='select picture_name from '.$receiveInfo["infoType"].'_picture 
-				where '.$receiveInfo["infoType"].'_id = '.$receiveInfo['id'];
-			$outputArray["picture_url"]="Public/pictures/".$receiveInfo["infoType"].'s/' .$tables->query($sqlString)[0]["picture_name"];
+		if($records[0]["picture_name"]!="NULL"){
+			$outputArray["picture_url"]="Public/pictures/".$receiveInfo["infoType"].'s/'.$records[0]["picture_name"];
 		}else{
 			$outputArray["picture_url"]="Public/pictures/".$outputArray["type"].".jpg";
 		}
 
 		return $outputArray;
+	}
+
+	public function getContact($receiveInfo){
+		$tables=M();
+
+		//.将获取过联系方式的人的信息存入记录
+		$data = array(
+            "type" => $receiveInfo["infoType"],
+            "thing_id" => $receiveInfo["id"],
+            "school_card_id" =>213123641
+            );
+		M('records')->data($data)->add();
+
+		//
+
+		$sqlString="select contact from ".$receiveInfo["infoType"]."s 
+			 where ".$receiveInfo["infoType"].'_id = '.$receiveInfo['id'];
+		$records=$tables->query($sqlString);
+		return $records[0]["contact"];
 	}
 }

@@ -10,8 +10,6 @@ class AddContentModel extends Model {
 	public function __construct($modelName){
 		$this->$losesTable=M('Loses');
 		$this->$picksTable=M('picks');
-		$this->$losePictureTable=M('LosePicture');
-		$this->$pickPictureTable=M('pickPicture');
 
 	//	parent::__construct($modelName);	//不必调用父类构造函数也能工作，这样还节约资源
 	}
@@ -31,6 +29,17 @@ class AddContentModel extends Model {
 		if($sqlFilter==''){
 			$sqlFilter="type = 'stationery' or type = 'electronic' or type = 'card' or type = 'money' or type = 'keys' or type = 'others'";
 		}
+		$sqlFilter="(".$sqlFilter.")";
+		if( !empty($receiveInfo["beginTime"]) ){
+			$sqlFilter=$sqlFilter." and datetime >= '".$receiveInfo["beginTime"]."'";
+		}
+		if( !empty($receiveInfo["endTime"]) ){
+			$sqlFilter=$sqlFilter." and datetime <= '".$receiveInfo["endTime"]."'";
+		}
+		if( !empty($receiveInfo["nameFilter"]) ){
+			$sqlFilter=$sqlFilter." and thing_name like '%".$receiveInfo["nameFilter"]."%'";
+		}
+
 		return $sqlFilter;
 	}
 
@@ -89,7 +98,7 @@ class AddContentModel extends Model {
 
 			if($latestTime1 > $latestTime2){
 				$loseSelectTable=$this->$losesTable->query(
-					'select lose_id,thing_name,place,datetime,thing_describe,if_has_picture,type 
+					'select lose_id,thing_name,place,datetime,thing_describe,picture_name,type 
 					from loses where ('.$sqlFilter.') 
 					and if_find=false 
 					and lose_id < '.$receiveInfo["loseId"].' 
@@ -105,10 +114,8 @@ class AddContentModel extends Model {
 
 
 				//有图片
-				if($loseSelectTable[0]["if_has_picture"]){
-					$outputArray[$i]["picture_url"]="Public/pictures/loses/".$this->$losePictureTable->query(
-						'select picture_name from lose_picture
-						where lose_id='.$loseSelectTable[0]["lose_id"])[0]["picture_name"];
+				if($loseSelectTable[0]["picture_name"]!="NULL"){
+					$outputArray[$i]["picture_url"]="Public/pictures/loses/".$loseSelectTable[0]["picture_name"];
 				}else{
 					$outputArray[$i]["picture_url"]="Public/pictures/".$loseSelectTable[0]["type"].".jpg";
 				}
@@ -131,7 +138,7 @@ class AddContentModel extends Model {
 
 			}else{
 				$pickSelectTable=$this->$picksTable->query(
-					'select pick_id,thing_name,place,datetime,thing_describe,if_has_picture,type 
+					'select pick_id,thing_name,place,datetime,thing_describe,picture_name,type 
 					from picks where ('.$sqlFilter.') 
 					and if_give_back=false 
 					and pick_id < '.$receiveInfo["pickId"].' 
@@ -145,12 +152,9 @@ class AddContentModel extends Model {
 				$outputArray[$i]["thing_describe"]=$pickSelectTable[0]["thing_describe"];
 				$outputArray[$i]["type"]=$pickSelectTable[0]["type"];
 
-
 				//有图片	
-				if($pickSelectTable[0]["if_has_picture"]){
-					$outputArray[$i]["picture_url"]="Public/pictures/picks/".$this->$pickPictureTable->query(
-						'select picture_name from pick_picture
-						where pick_id='.$pickSelectTable[0]["pick_id"])[0]["picture_name"];
+				if($pickSelectTable[0]["picture_name"]!="NULL"){
+					$outputArray[$i]["picture_url"]="Public/pictures/picks/".$pickSelectTable[0]["picture_name"];
 				}else{
 					$outputArray[$i]["picture_url"]="Public/pictures/".$pickSelectTable[0]["type"].".jpg";
 				}
@@ -205,7 +209,7 @@ class AddContentModel extends Model {
 			//每次载入新内容时比较时间
 			if($latestTime1 > $latestTime2){
 				$loseSelectTable=$this->$losesTable->query(
-					'select lose_id,thing_name,place,datetime,thing_describe,if_has_picture,type
+					'select lose_id,thing_name,place,datetime,thing_describe,picture_name,type
 					from loses where if_find = TRUE 
 					and lose_id < '.$receiveInfo["loseId"].' 
 					order by update_time desc,lose_id desc limit 1');
@@ -220,9 +224,8 @@ class AddContentModel extends Model {
 
 
 				//有图片
-				if($loseSelectTable[0]["if_has_picture"]){
-					$outputArray[$i]["picture_url"]="Public/pictures/loses/".$this->$losePictureTable->query('select picture_name from lose_picture
-						where lose_id='.$loseSelectTable[0]["lose_id"])[0]["picture_name"];
+				if($loseSelectTable[0]["picture_name"]!="NULL"){
+					$outputArray[$i]["picture_url"]="Public/pictures/loses/".$loseSelectTable[0]["picture_name"];
 				}else{
 					$outputArray[$i]["picture_url"]="Public/pictures/".$loseSelectTable[0]["type"].".jpg";
 				}
@@ -230,7 +233,7 @@ class AddContentModel extends Model {
 				$receiveInfo["loseId"]=$loseSelectTable[0]["lose_id"];	//这里要及时对id的位置记录进行更新
 
 			}else{
-				$pickSelectTable=$this->$picksTable->query('select pick_id,thing_name,place,datetime,thing_describe,if_has_picture,type
+				$pickSelectTable=$this->$picksTable->query('select pick_id,thing_name,place,datetime,thing_describe,picture_name,type
 					from picks where if_give_back = TRUE 
 					and pick_id < '.$receiveInfo["pickId"].' 
 					order by update_time desc,pick_id desc limit 1');
@@ -245,9 +248,8 @@ class AddContentModel extends Model {
 
 
 				//有图片	
-				if($pickSelectTable[0]["if_has_picture"]){
-					$outputArray[$i]["picture_url"]="Public/pictures/picks/".$this->$pickPictureTable->query('select picture_name from pick_picture
-						where pick_id='.$pickSelectTable[0]["pick_id"])[0]["picture_name"];
+				if($pickSelectTable[0]["picture_name"]!="NULL"){
+					$outputArray[$i]["picture_url"]="Public/pictures/picks/".$loseSelectTable[0]["picture_name"];
 				}else{
 					$outputArray[$i]["picture_url"]="Public/pictures/".$loseSelectTable[0]["type"].".jpg";
 				}

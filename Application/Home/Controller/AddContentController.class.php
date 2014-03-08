@@ -8,6 +8,9 @@ class AddContentController extends Controller{
 		$receiveInfo["pickId"]=I('post.pickId');
 		$receiveInfo["addCount"]=I('post.addCount');
 		$receiveInfo["typeFilter"]=I('post.typeFilter');//这是一个布尔数组，包含类型过滤的信息，元素有stationery、electronic、card、money、keys、others
+		$receiveInfo["beginTime"]=I('post.beginTime');
+		$receiveInfo["endTime"]=I('post.endTime');
+		$receiveInfo["nameFilter"]=I('post.searchInput');
 
 		$addconMod=D('AddContent');	//实例化添加信息模型
 
@@ -115,7 +118,6 @@ class AddContentController extends Controller{
 				$returnInfo["pickId"]=$outputArray[$i]["content_id"];
 			}
 		}
-		$returnInfo["status"]="success";
 		echo json_encode($returnInfo);
 	}
 

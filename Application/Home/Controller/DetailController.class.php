@@ -57,4 +57,78 @@ class DetailController extends Controller {
     	echo json_encode($returnInfo); 
 
     }
+
+    public function getContact(){
+        if (0/* 未登录 */) {
+            $returnInfo["status"]="1";  //未登录错误
+            echo json_encode($returnInfo);
+            return;
+        }
+        //
+        if(I('post.infoType')=="lose" || I('post.infoType')=="pick"){
+            $receiveInfo["infoType"]=I('post.infoType');
+        }else{
+            $returnInfo["status"]="2";  //请求参数错误
+            echo json_encode($returnInfo);
+            return;
+        }
+
+        $receiveInfo["id"]=I('post.id');
+        $receiveInfo["infoType"]=I('post.infoType');
+
+        $detailMod=D('Detail');
+        $returnInfo["content"]=$detailMod->getContact($receiveInfo);
+        $returnInfo["status"]="3";  //成功
+        echo json_encode($returnInfo);
+    }
+
+    public function setComment(){
+         if (0/* 未登录 */) {
+            $returnInfo["status"]="1";  //未登录错误
+            echo json_encode($returnInfo);
+            return;
+        }
+        //
+        if(I('post.infoType')=="lose" || I('post.infoType')=="pick"){
+            $receiveInfo["infoType"]=I('post.infoType');
+        }else{
+            $returnInfo["status"]="2";  //请求参数错误
+            echo json_encode($returnInfo);
+            return;
+        }
+
+        $receiveInfo["infoType"]=I('post.infoType');
+        $receiveInfo["id"]=I('post.id');
+        $receiveInfo["content"]=I('post.content');
+        
+        if($receiveInfo["infoType"]=="lose"){          
+            $data = array(
+                "lose_id" => $receiveInfo["id"],
+                "comment" => $receiveInfo["content"],
+                "datetime" => date('Y-m-d H:i:s'),
+                "school_card_id" =>213123641
+            );
+            if( M('lose_comments')->data($data)->add() ){
+                $returnInfo["status"]="3"; 
+                echo json_encode($returnInfo);
+            }
+        }else{
+            $data = array(
+                "pick_id" => $receiveInfo["id"],
+                "comment" => $receiveInfo["content"],
+                "datetime" => date('Y-m-d H:i:s'),
+                "school_card_id" =>213123641
+            );
+            if( M('pick_comments')->data($data)->add() ){
+                $returnInfo["status"]="3"; 
+                echo json_encode($returnInfo);                
+            }
+        }
+
+            
+            
+
+//        $returnInfo["status"]="4"; 
+//        echo json_encode($returnInfo);       
+    }
 }

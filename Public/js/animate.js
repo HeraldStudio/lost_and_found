@@ -32,7 +32,8 @@ $(window).scroll(function(){
 		vBarHide();
 		$("#pin").animate(
 			{
-				bottom:-120
+				bottom:cilentHeight-330,
+				opacity:0
 			},
 			500,	//speed
 			function(){
@@ -54,7 +55,8 @@ $(window).scroll(function(){
 		vBarHide();
 		$("#pin").animate(
 			{
-				bottom:-120
+				bottom:cilentHeight-330,
+				opacity:0
 			},
 			500
 		);
@@ -87,13 +89,14 @@ function pinUp(){
 	cilentHeight=document.documentElement.clientHeight;
 	$("#pin").animate(
 		{
-			bottom:cilentHeight-160
+			bottom:cilentHeight-90,
+			opacity:1
 		},
-		300
+		600
 	);
 	$("#pin").animate(
 		{
-			bottom:cilentHeight-200
+			bottom:cilentHeight-130
 		},
 		300,	//speed
 		function(){
@@ -105,9 +108,10 @@ function pinUp(){
 function tipUp(){
 	$("#tip").animate(
 		{
-			bottom:cilentHeight-365
+			bottom:cilentHeight-305,
+			opacity:1
 		},
-		400,	//speed
+		700,	//speed
 		function(){
 
 		}
@@ -117,11 +121,12 @@ function tipUp(){
 function tipDown(){
 	$("#tip").animate(
 		{
-			bottom:-320
+			bottom:cilentHeight-505,
+			opacity:0
 		},
 		300,	//speed
 		function(){
-
+			
 		}
 	);	
 }
@@ -207,16 +212,6 @@ $(".vBar2").mouseout(function(){
 	);
 });
 
-$(".vBar2").click(function(){
-	if(this.innerHTML=="全部信息" || this.innerHTML=="有人捡到" || this.innerHTML=="有人丢失" || this.innerHTML=="成绩展示")
-	document.getElementById("tipInner").innerHTML=this.innerHTML;
-});
-
-$(".navbar-btn").click(function(){
-	if(this.innerHTML=="全部信息" || this.innerHTML=="有人捡到" || this.innerHTML=="有人丢失" || this.innerHTML=="成绩展示")
-	document.getElementById("tipInner").innerHTML=this.innerHTML;
-});
-
 $("#closeLogin").click(function(){
 	$("#loginModal").modal('hide');
 });
@@ -234,4 +229,15 @@ $("#closeDetail").click(function(){
 });
 $("#closeDetail2").click(function(){
 	$("#detail").modal('hide');
+});
+
+$('.form_datetime').datetimepicker({
+    //language:  'fr',
+    weekStart: 1,
+    todayBtn:  1,
+	autoclose: 1,
+	todayHighlight: 1,
+	startView: 2,
+	forceParse: 0,
+    showMeridian: 1
 });
