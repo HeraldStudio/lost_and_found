@@ -21,11 +21,20 @@
 		<p>描述：{$thing_describe}</p>
 		<p>发布者：{$name}</p>
 		<p>发布时间：{$update_time}</p>
-		<p>联系方式：{$contact}</p>
+		<p>联系方式：<button class="btn btn-primary btn-sm getContact">点击获取</button></p>
 	</div>
 	<div id="detailComment">
 		<h4><strong>评论:</strong></h4>
+		<?php
+		for($i=0;$i<count($comments);$i++){
+		?>
+			<p class="commenter"><strong>{$comments[$i]["name"]}:</strong>{$comments[$i]["comment"]} ({$comments[$i]["datetime"]})</p>
+		<?php
+		}
+		?>
 	</div>
+		<textarea type="area" rows="2" cols="4" class="form-control" id="commentContent2" placeholder="我要评论"></textarea>
+		<button class="btn btn-default btn-s" id="submit2">发表</button>
 </div>
 
 <div class="clear"></div>

@@ -14,19 +14,19 @@ body
 	width:100%;
 	height:230px;
 	//background-color:rgba(51, 153, 0, 0.91);
-	background-color:rgb(102, 51, 153);
-	opacity:0.91;
+	//background-color:rgb(102, 51, 153);
+	//opacity:0.95;
+	//opacity:1;
 	//background-color:#336666;
 	//background-color:#669966;
 	position:fixed;
 	z-index:2;
-}
 
-#headImg
-{
-	position: absolute;
-	top:0px;
-	left:0px;
+background-color:rgb(102, 51, 153);
+background-image: url(../img/gh-enterprise-bg1.jpg);
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
 }
 
 #myTitle
@@ -36,7 +36,6 @@ body
 	padding-left:15%;
 	padding-right:15%;
 	margin-top:30px;
-
 }
 
 #myTitle1
@@ -56,6 +55,17 @@ body
 	margin-left:10px;
 	position:relative;
 	top:25px;
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,
+	"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+#heraldLogoTop
+{
+	position: absolute;
+	width:125px;
+	height:118px;
+	margin-top:-85px;
+	right: 155px;
 }
 
 #myTitle1b
@@ -106,9 +116,10 @@ body
 {
 	position:fixed;
 	bottom:-120px;
-	left:20px;
-	width:150px;
-	height:120px;
+	left:70px;
+	width:70px;
+	height:100px;
+	opacity: 0;
 	z-index:3;
 }
 
@@ -117,16 +128,17 @@ body
 	width:150px;
 	height:200px;
 	background: #FFC;
+	opacity: 0;
 	position:fixed;
 	bottom:-320px;
 	left:15px;
 	border-radius:5px;
 	border: 1px solid #ddd;
-	box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-	-webkit-transform: rotate(-4deg);
-		-moz-transform: rotate(-4deg);
-		-ms-transform: rotate(-4deg);
-			transform: rotate(-4deg);
+	box-shadow: 5px 5px 7px rgba(33,33,33,0.7);
+	-webkit-transform: rotate(-3deg);
+		-moz-transform: rotate(-3deg);
+		-ms-transform: rotate(-3deg);
+			transform: rotate(-3deg);
 
 	padding-left:10px;
 	padding-right:10px;
@@ -241,17 +253,6 @@ body
 {
 	width:100%;
 	height:230px;
-	//background-color: #CCFFCC;
-	//background-color: #006699;
-}
-
-#seuLogo
-{
-	position:absolute;
-	width:125px;
-	height:125px;
-	margin-top:30px;
-	right: 350px;
 }
 
 #heraldLogo
@@ -263,16 +264,6 @@ body
 	right: 150px;
 }
 
-#heraldLogo2
-{
-	position:absolute;
-	width:125px;
-	height:118px;
-	margin-top:0px;
-	right: 150px;
-	top:20px;
-}
-
 #secondTitle
 {
 	position: absolute;
@@ -280,8 +271,10 @@ body
 
 #secondTitle h2
 {
-	margin-top:110px;
-	margin-left:200px;
+	margin-top:115px;
+	margin-left:210px;
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,
+	"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
 }
 
 .glyphicon-log-in,
@@ -316,6 +309,27 @@ body
 .filterBoxCheck
 {
 	margin-right:50px;
+}
+
+#filterBtn
+{
+	margin-right: 20px;
+}
+
+#searchInput
+{
+	width:250px;
+	margin-left: 20px;
+}
+
+.filterTimeLabel
+{
+	float:left;
+}
+
+#beginTime, #endTime
+{
+	width:260px;
 }
 
 #container
@@ -421,7 +435,8 @@ body
 
 #foot
 {
-	margin-top: -90px;
+	margin-top: -80px;
+	border-top: 1px solid #ddd;
 	height:80px;
 	width:100%;
 	background-color:#FFFFFF;
@@ -460,7 +475,7 @@ body
 
 #detailInfo
 {
-	width:300px;
+	width:400px;
 	margin-left: 20px;
 	padding-left: 20px;
 	border-left: 1px solid #ddd;
@@ -471,14 +486,14 @@ body
 
 #detailComment
 {
-	width:300px;
+	width:400px;
 	margin-left: 20px;
 	margin-top: 10px;
 	padding-left: 20px;
 	border-left: 1px solid #ddd;
 	border-top: 1px solid #ddd;
 	border-top-left-radius: 5px;
-	height:100px;
+	//height:100px;
 }
 
 #detailComment h4
@@ -490,4 +505,51 @@ body
 	-webkit-transition: .5s;
 	-moz-transition: .5s;
 	transition: .5s;
+}
+
+#commentBox
+{
+	position: fixed;
+	width:100%;
+	height:0;
+	background-color: white;
+	border-top: 1px solid #ddd;
+	bottom: 0px;
+	z-index: 10;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+#hide
+{
+	position: absolute;
+	right: 20px;
+	top:50px;
+}
+
+#submit
+{
+	position: absolute;
+	right: 20px;
+	top: 10px;
+}
+
+#commentContent
+{
+	position: absolute;
+	right:150px;
+	margin-top: 5px;
+	width:500px;
+	height:90px;
+}
+
+#commentContent2
+{
+	margin-left: 20px;
+	width: 400px;
+}
+
+#submit2
+{
+	float: right;
+	margin-top: 5px;
 }

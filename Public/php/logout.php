@@ -1,5 +1,5 @@
 <?php
-/*	if(!empty($_COOKIE["HERALD_USER_SESSION_ID"]))
+	if(!empty($_COOKIE["HERALD_USER_SESSION_ID"]))
 	{
 		setcookie('HERALD_USER_SESSION_ID',null,time()-36000);
 		$return_info['code']=200;
@@ -9,11 +9,11 @@
 	{
 		$return_info['code']=3;
 	}
-	echo json_encode($return_info);	*/
+	echo json_encode($return_info);
 
-	$return_info=send_post("http://herald.seu.edu.cn/useraccount/logout.php", $_COOKIE["HERALD_USER_SESSION_ID"]);
+/*	$return_info=send_post("http://herald.seu.edu.cn/useraccount/logout.php", $_COOKIE["HERALD_USER_SESSION_ID"]);
 	echo $return_info;
-
+*/
 	function send_post($url, $post_data) {  
         $postdata = http_build_query($post_data);  
         $options = array(  

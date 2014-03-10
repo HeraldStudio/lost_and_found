@@ -7,6 +7,7 @@
     <!-- Bootstrap -->
     <link href="Public/css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="Public/css/application.css" rel="stylesheet" media="screen">
+    <link href="Public/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -17,11 +18,11 @@
 
   <body>
   	<div id="myHead">
-      <!--<a href="http://herald.seu.edu.cn"><img id="headImg" src="Public/img/return-back.png"/></a> -->
 		<div id="myTitle">
 			<div id="myTitle1"><strong>失物招领</strong></div>
 			<div id="myTitle2">您口袋的小补丁</div>
 		</div>
+    <img src="Public/img/herald.png" id="heraldLogoTop">
 
     <div id="nav">
       <nav class="navbar navbar-default" id="navbar" role="navigation">
@@ -44,9 +45,6 @@
             <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="othersLose">有人丢失</button></li>
             <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#picks">我捡到了</button></li>
             <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" data-toggle="modal" data-target="#loses">我弄丢了</button></li>
-          </ul>
-          <ul class="nav navbar-nav">
-            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="filterBtn">类型筛选</button></li>
             <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="achievements">成绩展示</button></li>
           </ul>
 
@@ -65,14 +63,9 @@
             </li>
           </ul>
 
-          <form class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-            <input type="text" class="form-control" id="searchInput" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="toolButton"><button type="button" class="btn btn-default navbar-btn" id="filterBtn">信息筛选 <span class="glyphicon glyphicon-search"></span></button></li>
+          </ul>
 
         </div><!-- /.navbar-collapse -->
       </nav>
@@ -91,14 +84,14 @@
           <!--窗口主体-->
             <form class="form-horizontal" id="loginForm" role="form">
               <div class="form-group">
-                <label for="username" class="col-sm-2 control-label">用户名：</label>
+                <label for="username" class="col-sm-3 control-label">用户名：</label>
                 <div class="loginInput">
                   <input type="username" class="form-control" id="username" placeholder="用户名">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="passward" class="col-sm-2 control-label">密码：</label>
+                <label for="passward" class="col-sm-3 control-label">密码：</label>
                 <div class="loginInput">
                   <input type="password" class="form-control" id="password" placeholder="密码">
                 </div>
@@ -123,32 +116,75 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" aria-hidden="true" id="closeFilter">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">类型筛选</h4>
+            <h4 class="modal-title" id="myModalLabel">信息筛选</h4>
           </div>
           <div class="modal-body">
           <!--窗口主体-->
-          <div class="filterBox">
-            <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="stationery"> 书本文具
-            </label>
-            <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="electronic"> 电子产品
-            </label>
-            <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="card"> 卡片证件
-            </label>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">类型筛选</div>
+              <div class="panel-body">
+                  <div class="filterBox">
+                    <label class="checkbox-inline filterBoxCheck">
+                      <input type="checkbox" id="stationery"> 书本文具
+                    </label>
+                    <label class="checkbox-inline filterBoxCheck">
+                      <input type="checkbox" id="electronic"> 电子产品
+                    </label>
+                    <label class="checkbox-inline filterBoxCheck">
+                      <input type="checkbox" id="card"> 卡片证件
+                    </label>
+                  </div>
+                  <div class="filterBox">
+                    <label class="checkbox-inline filterBoxCheck">
+                      <input type="checkbox" id="money"> 钱包钱币
+                    </label>
+                    <label class="checkbox-inline filterBoxCheck">
+                      <input type="checkbox" id="keys"> 钥匙挂件
+                    </label>
+                    <label class="checkbox-inline filterBoxCheck">
+                      <input type="checkbox" id="others"> 其它等等
+                    </label>
+                  </div>
+              </div>
+            </div>
+
+           <div class="panel panel-default">
+            <div class="panel-heading">时间筛选</div>
+            <div class="panel-body">
+
+            <div class="form-group">
+                <label for="dtp_input1" class="control-label filterTimeLabel">起始时间：</label>
+                <div class="input-group date form_datetime" data-date="2014-3-8 13:49:00" data-date-format="yyyy-mm-dd hh:ii:ss" id="beginTime"  data-link-field="dtp_input1">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+                <input type="hidden" id="dtp_input1" value="" />
+            </div>
+
+
+            <div class="form-group">
+                <label for="dtp_input2" class="control-label filterTimeLabel">结束时间：</label>
+                <div class="input-group date form_datetime" data-date="2014-3-8 13:49:00" data-date-format="yyyy-mm-dd hh:ii:ss" id="endTime" data-link-field="dtp_input2">
+                    <input class="form-control" size="16" type="text" value="" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+                <input type="hidden" id="dtp_input2" value="" />
+            </div>
+
+            </div>
           </div>
-          <div class="filterBox">
-            <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="money"> 钱包钱币
-            </label>
-            <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="keys"> 钥匙挂件
-            </label>
-            <label class="checkbox-inline filterBoxCheck">
-              <input type="checkbox" id="others"> 其它等等
-            </label>
+
+           <div class="panel panel-default">
+            <div class="panel-heading">名称匹配</div>
+            <div class="panel-body">           
+              <input type="text" class="form-control" id="searchInput" placeholder="输入您要找的物品的名称">
+            </div>
           </div>
+
+
           <!--窗口主体-->
           </div>
           <div class="modal-footer">
@@ -340,7 +376,7 @@
   </div><!-- /.modal -->
 
     <div id="tip">
-      失物招领
+      当前范围
       <div id="tipInner">全部信息</div>
     </div>
     <img id="pin" src="Public/img/pin.png"/>
@@ -357,7 +393,7 @@
     <div class="vBar2" id="someoneLose2">有人丢失</div>
     <div class="vBar2" id="ILose2">我捡到了...</div>
     <div class="vBar2" id="IPick2">我弄丢了...</div>
-    <div class="vBar2" id="ourHonor2">类型筛选</div>
+    <div class="vBar2" id="ourHonor2">信息筛选</div>
 
     <!-- Modal detail -->
     <div class="modal fade" id="detail" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -388,11 +424,18 @@
         <div id="secondTitle"><h2>东南大学先声网 - 网络先驱的声音</h2></div>
       </div>
 
+
       <div id="container">
           <div id="content-inner"></div>
           <div class="clear"></div>
           <div id="addmore" class="btn btn-default">加载更多</div>
       </div>
+    </div>
+
+    <div id="commentBox">
+        <textarea type="area" rows="3" cols="10" class="form-control" id="commentContent" placeholder="评论"></textarea>
+        <button class="btn btn-default" id="hide">隐藏</button>
+        <button class="btn btn-default" id="submit">发表</button>
     </div>
 
     <div id="foot">
@@ -403,13 +446,13 @@
     <script src="Public/js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="Public/js/bootstrap.js"></script>
+    <script src="Public/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="Public/js/bootstrap-datetimepicker.fr.js"></script>
     <script src="Public/js/animate.js"></script>
     <script src="Public/js/login.js"></script>
     <script src="Public/js/function.js"></script>
     <script src="Public/js/formhandle.js"></script>
     <script src="Public/js/placeholder.js"></script>
     <script src="Public/js/ajaxfileupload.js"></script>
-    <script src="jquery-1.6.2.min.js" ></script>
-    <script src="ajaxfileupload.js" ></script>
   </body>
 </html>

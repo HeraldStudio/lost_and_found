@@ -3,8 +3,8 @@
 namespace Home\Controller;
 use Think\Controller;
 class IndexController extends Controller {
-    public function index(){
-    	//获取用户登录信息
+   public function index(){
+/*    	//获取用户登录信息
         $cookie=$_COOKIE["HERALD_USER_SESSION_ID"];
         $PostResult=$this->send_post("http://herald.seu.edu.cn/useraccount/getloginuserinfo.php", $cookie);
         //'
@@ -35,5 +35,8 @@ class IndexController extends Controller {
       $context = stream_context_create($options);  
       $result = file_get_contents($url, false, $context);  
       return $result;  
+
+*/
+      $this->display();
     } 
 }

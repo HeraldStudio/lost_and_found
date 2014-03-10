@@ -8,6 +8,9 @@ class AddContentController extends Controller{
 		$receiveInfo["pickId"]=I('post.pickId');
 		$receiveInfo["addCount"]=I('post.addCount');
 		$receiveInfo["typeFilter"]=I('post.typeFilter');//这是一个布尔数组，包含类型过滤的信息，元素有stationery、electronic、card、money、keys、others
+		$receiveInfo["beginTime"]=I('post.beginTime');
+		$receiveInfo["endTime"]=I('post.endTime');
+		$receiveInfo["nameFilter"]=I('post.searchInput');
 
 		$addconMod=D('AddContent');	//实例化添加信息模型
 
@@ -29,7 +32,7 @@ class AddContentController extends Controller{
 			$conWidth=238; $conHeight=178;	//设置容器尺寸，修改时只对此一处进行修改
 			list($width, $height, $type, $attr)=getimagesize($outputArray[$i]["picture_url"]);
 			if(!$type){
-				$outputArray[$i]["picture_url"]="Public/pictures/default.jpg";
+				$outputArray[$i]["picture_url"]="Public/pictures/".$outputArray[$i]["type"].".jpg";
 				list($width, $height, $type, $attr)=getimagesize($outputArray[$i]["picture_url"]);
 			}
 			if($width/$height > $conWidth/$conHeight){
@@ -87,7 +90,7 @@ class AddContentController extends Controller{
 			$conWidth=238; $conHeight=178;	//设置容器尺寸，修改时只对此一处进行修改
 			list($width, $height, $type, $attr)=getimagesize($outputArray[$i]["picture_url"]);
 			if(!$type){
-				$outputArray[$i]["picture_url"]="Public/pictures/default.jpg";
+				$outputArray[$i]["picture_url"]="Public/pictures/".$outputArray[$i]["type"].".jpg";
 				list($width, $height, $type, $attr)=getimagesize($outputArray[$i]["picture_url"]);
 			}
 			if($width/$height > $conWidth/$conHeight){
@@ -115,7 +118,6 @@ class AddContentController extends Controller{
 				$returnInfo["pickId"]=$outputArray[$i]["content_id"];
 			}
 		}
-		$returnInfo["status"]="success";
 		echo json_encode($returnInfo);
 	}
 
