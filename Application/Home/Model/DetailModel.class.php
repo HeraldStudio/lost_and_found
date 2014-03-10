@@ -5,14 +5,13 @@ class DetailModel extends Model {
 	public function addDetail($receiveInfo){
 		$tables=M();
 
-		$sqlString='select name,contact,thing_name,place,datetime,update_time,thing_describe,picture_name,type,
-			'.$receiveInfo["infoType"].'_id 
+		$sqlString='select name,contact,thing_name,place,datetime,update_time,thing_describe,picture_name,type
 			from '.$receiveInfo["infoType"].'s 
 			where '.$receiveInfo["infoType"].'_id = '.$receiveInfo['id'];
 		$records=$tables->query($sqlString);
 
 		$outputArray["infoType"]=$receiveInfo["infoType"];
-		$outputArray["id"]=$records[0][$receiveInfo["infoType"].'_id'];
+		$outputArray["id"]=$receiveInfo["id"];
 		$outputArray["thing_name"]=$records[0]["thing_name"];
 		$outputArray["place"]=$records[0]["place"];
 		$outputArray["datetime"]=$records[0]["datetime"];
@@ -22,13 +21,17 @@ class DetailModel extends Model {
 		$outputArray["contact"]=$records[0]["contact"];
 		$outputArray["type"]=$records[0]["type"];
 
-
 		if($records[0]["picture_name"]!="NULL"){
 			$outputArray["picture_url"]="Public/pictures/".$receiveInfo["infoType"].'s/'.$records[0]["picture_name"];
 		}else{
 			$outputArray["picture_url"]="Public/pictures/".$outputArray["type"].".jpg";
 		}
 
+		//添加评论内容
+		$sqlString="select comment,name,datetime from ".$receiveInfo["infoType"]."_comments
+			where ".$receiveInfo["infoType"]."_id = ".$receiveInfo['id'];
+		$outputArray["comments"]=$tables->query($sqlString);
+		//
 		return $outputArray;
 	}
 

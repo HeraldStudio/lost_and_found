@@ -103,12 +103,15 @@ function comment(infoType, commentId){
 		400
 	);
 	$("#submit").click(function(){
-		setComment(infoType, commentId, $("#commentContent").val());
+		if($("#commentContent").val())
+			setComment(infoType, commentId, $("#commentContent").val());
+		else
+			alert("请输入要评论的内容");
 	});
 
 }
 
-function setComment(infoType, commentId, commentContent){
+function setComment(infoType, commentId, commentContent, refresh){
 	$.ajax({
 		url:'index.php/Home/Detail/setComment',
 		type:'post',
@@ -123,15 +126,17 @@ function setComment(infoType, commentId, commentContent){
 				alert("无效请求，请您正常操作");
 				return;
 			}
-			alert("评论成功");
+			if(refresh){
+				$("#detailComment").html(data.comments);
+				$("#commentContent2").val("");
+			}else{
+				$("#commentContent").val("");
+			}
 		},
 		error:function(){
 			alert("很抱歉，网络错误，请稍后重试");
 		}
 	});
-
-
-
 }
 
 function detail(infoType, detailId){
@@ -152,9 +157,15 @@ function detail(infoType, detailId){
 			$("#detail-content").html(data.content);
 			$("#detail").modal();
 				$(".getContact").click(function(){
-					if( $(this).hasClass("lose") ) var type="lose";
-					else var type="pick";
-					getContact(type, this.id);
+					getContact(infoType, detailId);
+				});
+
+				$("#submit2").click(function(){
+					if($("#commentContent2").val()){
+						setComment(infoType, detailId, $("#commentContent2").val(), true);
+					}else{
+						alert("请输入要评论的内容");
+					}
 				});
 		},
 		error:function(){

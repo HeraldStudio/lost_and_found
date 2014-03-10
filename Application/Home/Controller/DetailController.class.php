@@ -83,12 +83,12 @@ class DetailController extends Controller {
     }
 
     public function setComment(){
-         if (0/* 未登录 */) {
+        if (0/* 未登录 */) {
             $returnInfo["status"]="1";  //未登录错误
             echo json_encode($returnInfo);
             return;
         }
-        //
+        
         if(I('post.infoType')=="lose" || I('post.infoType')=="pick"){
             $receiveInfo["infoType"]=I('post.infoType');
         }else{
@@ -106,29 +106,37 @@ class DetailController extends Controller {
                 "lose_id" => $receiveInfo["id"],
                 "comment" => $receiveInfo["content"],
                 "datetime" => date('Y-m-d H:i:s'),
-                "school_card_id" =>213123641
+                "school_card_id" =>213123641,
+                "name" =>"李盈达"
             );
             if( M('lose_comments')->data($data)->add() ){
                 $returnInfo["status"]="3"; 
-                echo json_encode($returnInfo);
             }
         }else{
             $data = array(
                 "pick_id" => $receiveInfo["id"],
                 "comment" => $receiveInfo["content"],
                 "datetime" => date('Y-m-d H:i:s'),
-                "school_card_id" =>213123641
+                "school_card_id" =>213123641,
+                "name" =>"李盈达"
             );
             if( M('pick_comments')->data($data)->add() ){
                 $returnInfo["status"]="3"; 
-                echo json_encode($returnInfo);                
+             
             }
         }
 
-            
-            
+        $tables=M();
+        $sqlString="select comment,name,datetime from ".$receiveInfo["infoType"]."_comments
+            where ".$receiveInfo["infoType"]."_id = ".$receiveInfo['id'];
+        $results=$tables->query($sqlString);
 
-//        $returnInfo["status"]="4"; 
-//        echo json_encode($returnInfo);       
+        $returnInfo["comments"]="<h4><strong>评论:</strong></h4>";
+        for($i=0;$i<count($results);$i++){
+            $returnInfo["comments"]=$returnInfo["comments"]."<p class='commenter'><strong>".
+                $results[$i]["name"].":</strong>".$results[$i]["comment"]." (".$results[$i]["datetime"].")</p>";
+        }
+
+        echo json_encode($returnInfo);         
     }
 }
