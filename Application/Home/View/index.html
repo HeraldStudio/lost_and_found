@@ -1,1 +1,38 @@
- 
+  <table class="table table-hover">
+      <tr class="success">
+        <th id="id"><strong>捡到</strong></th>
+        <th id="type"><strong>类型</strong></th>
+        <th><strong>名称</strong></th>
+        <th><strong>地点</strong></th>
+        <th><strong>时间</strong></th>
+        <th id="status"><strong>状态</strong></th>
+        <th id="confirm"><strong>确认</strong></th>
+        <th id="delete"><strong>删除</strong></th>
+      </tr>
+
+      <foreach name="pcinfo" item="p">
+      <tr>
+        <td>{$p.pick_id}</td>
+        <td>{$p.type}</td>
+        <td>{$p.thing_name}</td>
+        <td>{$p.place}</td>
+        <td>{$p.datetime}</td>
+        <td>
+      <?php
+      if($p.if_give_back == "0"){
+      ?>
+      未归还
+      <?php
+      }else{
+      ?>
+      已归还
+      <?php
+      }
+      ?>
+    </td>
+        <td><button type="lose"  id="" infoid="1" class="btn btn-sm btn-default"><span class="glyphicon glyphicon-ok"></span> <a href="#">等待确认</a></button></td>
+        <td><button type="lose"  id="pc_delect" infoid="2" class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-remove"></span> 删除</button></td>
+      </tr>
+  </foreach>
+</table> 
+<div class="clear"></div>

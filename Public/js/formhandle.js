@@ -6,48 +6,32 @@ jQuery(document).ready(function() {
 	var contact = $('#pc_contact').val();
 	var thing_describe = $('#pc_thing_describe').val();
 	var type = $('#pc_type').val();
-	var if_has_picture = $("input[name='pc_has_picture']:checked").val();
+	var picture_name = $('#pc_picture').val();
 	if(thing_name==''){
 		alert("物品名称不能为空");
-		ls_things_name.focus();
+		pc_things_name.focus();
 		return;
 	}
 	if (place == ''){
 			alert("地点不能为空");
-			ls_place.focus();
+			pc_place.focus();
 			return;
 	}
 	if (datetime == ''){
 			alert("时间不能为空");
-			ls_datetime.focus();
+			pc_datetime.focus();
 			return;
 	}
-
-	$.ajaxFileUpload
-				        (
-				            {
-				                url:'index.php/home/UpFile/upload', 
-				                secureuri:false,
-				                fileElementId:'pc_picture',
-				                dataType: 'json',
-				                success: function (data, status)
-				                {
-				                    data;
-				                },
-				                error: function (data, status, e)
-				                {
-				                    alert(e);
-				                }
-				            }
-				        )
+	
 
 				        
 	$.post('index.php/home/FormHandle/picksform',
-	{'thing_name':thing_name,'type':type,'place':place,'datetime':datetime,'contact':contact,'thing_describe':thing_describe,'if_has_picture':if_has_picture},
+	{'thing_name':thing_name,'type':type,'place':place,'datetime':datetime,'contact':contact,'thing_describe':thing_describe,'picture_name':picture_name},
 		function(data){
 			if(data.status){
 				alert('发布成功');
 				$("#picks").modal('hide'); 
+
 			}else{
 				alert('发布失败');
 				$("#picks").modal('hide'); 
@@ -78,24 +62,6 @@ jQuery(document).ready(function() {
 			ls_datetime.focus();
 			return;
 	}
-
-	$.ajaxFileUpload
-				        (
-				            {
-				                url:'index.php/home/UpFile/lupload', 
-				                secureuri:false,
-				                fileElementId:'ls_picture',
-				                dataType: 'json',
-				                success: function (data, status)
-				                {
-				                    data;
-				                },
-				                error: function (data, status, e)
-				                {
-				                    alert(e);
-				                }
-				            }
-				        )
 
 	$.post('index.php/home/FormHandle/losesform',
 	{'thing_name':thing_name,'type':type,'place':place,'datetime':datetime,'contact':contact,'thing_describe':thing_describe,'if_has_picture':if_has_picture},

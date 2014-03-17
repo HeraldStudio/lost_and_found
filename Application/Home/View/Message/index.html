@@ -1,0 +1,17 @@
+<include file='ManageCommon:header'/>
+<tbody>
+	<foreach name='arr_thing' item='t'>
+	<div class="message line" align="left">
+		<p>类型：捡到&nbsp&nbsp&nbsp物品：{$t.thing_name}<p/>
+		<p>发布时间：{$t.update_time}</p>
+		<div id="comment">
+		<p>评论:</p>
+		<foreach name='comment' item='c'>
+		<p>{$c.comment}</p>
+		<p align="right">------{$c.name} {$c.datetime}</p>
+		</foreach>
+		</div>
+	</div>
+</foreach>
+<tbody>  
+<include file='ManageCommon:bottom'/>

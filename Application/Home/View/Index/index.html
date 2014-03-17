@@ -250,19 +250,12 @@
               <div class="form-group">
                     <label for="place" class="col-sm-3 control-label">上传图片：</label>
                 <div class="col-sm-6">
-              
-            <label class="radio inline">
-              <input type="radio" value="0" checked="checked" name="pc_has_picture" >
-              否
-              </label>
-            <label class="radio inline">
-              <input type="radio" value="1" name="pc_has_picture">
-              是
-            </label>
             <label>
             <input type="file" class="Input_file" id="pc_picture" name="pc_picture" >
+            <button type="submit" id="btn" style="display:none">upload</button>
             </label>
                 </div>
+                <div id="response"></div>
               </div>
 
               <div class="form-group">
@@ -274,7 +267,7 @@
                     </form>
                     <iframe src=""  width="0" height="0" style="display:none;" name="tarframe">
                     </iframe>
-                    <p id="ls_Tip">  Tips:时间不确定可以写相近的日期~</p>
+                    <p id="pc_Tip">  Tips:时间不确定可以写相近的日期~</p>
                   </div>
           <!--窗口主体-->     
         <div class="modal-footer">
@@ -340,19 +333,13 @@
               <div class="form-group">
                     <label for="place" class="col-sm-3 control-label">上传图片：</label>
                 <div class="col-sm-6">
-              
-            <label class="radio inline">
-              <input type="radio" value="0" checked="checked" name="ls_has_picture">
-              否
-              </label>
-            <label class="radio inline">
-              <input type="radio" value="1" name="ls_has_picture">
-              是
-            </label>
+            
             <label>
             <input type="file" class="Input_file" id="ls_picture" name="ls_picture">
+            <button type="submit" id="lsbtn" style="display:none">upload</button>
             </label>
                 </div>
+                  <div id="lsresponse"></div>
               </div>
 
               <div class="form-group">
@@ -452,7 +439,7 @@
     <script src="Public/js/login.js"></script>
     <script src="Public/js/function.js"></script>
     <script src="Public/js/formhandle.js"></script>
-    <script src="Public/js/placeholder.js"></script>
-    <script src="Public/js/ajaxfileupload.js"></script>
+    <script src="Public/js/upload.js"></script>
+  </body>
   </body>
 </html>

@@ -30,11 +30,11 @@ body
 
 #ctn-head{
 	width: 100%;
-	height: 46px;
+	height: 20px;
 
 }
 .ctn-font {
-padding-left: 70px;
+padding-left: 20px;
 font-size: 2.6em;
 color: #4DBDCB;
 font-weight: normal;
@@ -44,27 +44,26 @@ text-indent: 0;
 }
 #left
 {
-	width:400px;
-	height: 700px;
+	width:20%;
 	float:left;
-	padding-top: 40px;
+	padding-top: 60px;
 	display: inline-block;
 	margin-right: 1px;
 }
 #right
 {
-	width: 1200px;
-	float: left;
+	width: 60%;
 	display: inline-block;
 	/*border-left: 1px solid  #99CCFF;*/
 	padding-left: 25px;
-	padding-right: 25px;
-	padding-top: 12px;
+	/*padding-right: 25px;*/
+	padding-top: 60px;
 	min-height: 600px;
 	height: auto;
 	overflow: visible;
 
 }
+
 
 /***/
 #foot
@@ -162,44 +161,44 @@ background: url(../img/manage/home.png);
 background-repeat: no-repeat;
 float: left;
 }
-.lost_img {
-width: 60px;
-height: 60px;
-background: url(../img/manage/pencil.png);
-background-repeat: no-repeat;
-float: left;
-}
 .find_img {
-width: 60px;
-height: 60px;
-background: url(../img/manage/pen_drive.png);
+width: 45px;
+height: 45px;
+background: url(../img/manage/key.png);
 background-repeat: no-repeat;
 float: left;
 }
-.info_img {
-width: 60px;
-height: 60px;
-background: url(../img/manage/alarm.png);
+.lost_img {
+width: 45px;
+height: 45px;
+background: url(../img/manage/camera.png);
 background-repeat: no-repeat;
 float: left;
 }
+/*.info_img {
+width: 45px;
+height: 45px;
+background: url(../img/manage/ruler.png);
+background-repeat: no-repeat;
+float: left;
+}*/
 .message_img {
-width: 60px;
-height: 60px;
-background: url(../img/manage/antenna2.png);
+width: 45px;
+height: 45px;
+background: url(../img/manage/notepad.png);
 background-repeat: no-repeat;
 float: left;
 }
 #menu {
-    width: 350px;
     height: 600px;
-    font-size: 16px;
+    font-size: 6px;
     font-family: Tahoma, Geneva, sans-serif;
     font-weight: bold;
     border-radius: 8px;
     border-style: solid;
     border-width: 4px;
     border-color: #99CCFF;
+    padding-top: 20px;
 }
 #menu ul {
     height: 480px;
@@ -207,9 +206,7 @@ float: left;
     margin: 0px;
 }
 #menu li { 
-width:300px;
-display: inline; 
-padding: 20px;
+display: inline;
 margin-left: 15px;
 margin-top: 25px;
 float: left;
@@ -218,10 +215,29 @@ float: left;
 #menu a {
 float: left;
 font-family: "Courier New", Courier, monospace;
-font-size: 23px;
-margin-left: 10px;
+font-size: 16px;
+margin-left: 5px;
 margin-top: 35px;
 color: rgba(0, 0, 0, 0.38);
 }
 
+.line {
+background: transparent url(../img/manage/line.png) center bottom no-repeat;
+background-size: 100%;
+margin-bottom: 3em;
+padding-bottom: 3.5em;
+}
+
+.message
+{
+	width: 80%;
+	display: inline-block;
+	font-family: Verdana, helvetica, arial, sans-serif;
+	/*border-left: 1px solid  #99CCFF;*/
+	padding-left: 45px;
+	/*padding-right: 25px;*/
+	height: auto;
+	overflow: visible;
+
+}
 
