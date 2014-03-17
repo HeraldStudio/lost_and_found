@@ -421,8 +421,8 @@
 
     <div id="commentBox">
         <textarea type="area" rows="3" cols="10" class="form-control" id="commentContent" placeholder="评论"></textarea>
-        <button class="btn btn-default" id="hide">隐藏</button>
-        <button class="btn btn-default" id="submit">发表</button>
+        <button class="btn btn-default btn-sm" id="hide"> 隐藏 </button>
+        <button class="btn btn-primary btn-sm" id="submit"> 发表 </button>
     </div>
 
     <div id="foot">

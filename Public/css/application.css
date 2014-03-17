@@ -522,21 +522,21 @@ background-repeat: no-repeat;
 #hide
 {
 	position: absolute;
-	right: 20px;
+	right: 170px;
 	top:50px;
 }
 
 #submit
 {
 	position: absolute;
-	right: 20px;
+	right: 170px;
 	top: 10px;
 }
 
 #commentContent
 {
 	position: absolute;
-	right:150px;
+	right:250px;
 	margin-top: 5px;
 	width:500px;
 	height:90px;
