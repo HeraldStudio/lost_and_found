@@ -1,0 +1,555 @@
+html,body {
+	margin: 0;
+	padding:0;
+	height: 100%;
+}
+
+body
+{
+	background-image:url(../img/dust.png);
+}
+
+#myHead
+{
+	width:100%;
+	height:230px;
+	//background-color:rgba(51, 153, 0, 0.91);
+	//background-color:rgb(102, 51, 153);
+	//opacity:0.95;
+	//opacity:1;
+	//background-color:#336666;
+	//background-color:#669966;
+	position:fixed;
+	z-index:2;
+
+background-color:rgb(102, 51, 153);
+background-image: url(../img/gh-enterprise-bg1.jpg);
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
+}
+
+#myTitle
+{
+	width:100%;
+	height:80px;
+	padding-left:15%;
+	padding-right:15%;
+	margin-top:30px;
+}
+
+#myTitle1
+{
+	float:left;
+//	color:rgb(222,69,91);
+	color:white;
+	font-size:50px;
+}
+
+#myTitle2
+{
+	float:left;
+//	color:rgb(240,239,220);	
+	color:white;
+	font-size:25px;
+	margin-left:10px;
+	position:relative;
+	top:25px;
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,
+	"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+#heraldLogoTop
+{
+	position: absolute;
+	width:125px;
+	height:118px;
+	margin-top:-85px;
+	right: 155px;
+}
+
+#myTitle1b
+{
+	float:left;
+//	color:rgb(222,69,91);
+	color:blue;
+	font-size:50px;
+}
+
+#myTitle2b
+{
+	float:left;
+//	color:rgb(240,239,220);	
+	color:blue;
+	font-size:25px;
+	margin-left:10px;
+	position:relative;
+	top:25px;
+}
+
+#nav
+{
+	width:100%;
+	height:50px;
+	margin-top: 68px;
+}
+
+.navbar
+{
+//	background-color:#CCCC99;
+//	border-color:#CCCC99;
+	box-shadow: 5px 5px 5px #e6e6e6;
+}
+
+#tool
+{
+
+}
+
+.toolButton
+{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#pin
+{
+	position:fixed;
+	bottom:-120px;
+	left:70px;
+	width:70px;
+	height:100px;
+	opacity: 0;
+	z-index:3;
+}
+
+#tip
+{
+	width:150px;
+	height:200px;
+	background: #FFC;
+	opacity: 0;
+	position:fixed;
+	bottom:-320px;
+	left:15px;
+	border-radius:5px;
+	border: 1px solid #ddd;
+	box-shadow: 5px 5px 7px rgba(33,33,33,0.7);
+	-webkit-transform: rotate(-3deg);
+		-moz-transform: rotate(-3deg);
+		-ms-transform: rotate(-3deg);
+			transform: rotate(-3deg);
+
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:25px;
+	padding-bottom:10px;
+	z-index:3;
+}
+
+.vBar
+{
+	width:2px;
+	height:50px;
+	position:fixed;
+	right:-17px;
+}
+
+#allInf
+{
+	background-color:#6633CC;
+	top:100px;
+}
+
+#someonePick
+{
+	background-color:#6633CC;
+	top:150px;
+}
+
+#someoneLose
+{
+	background-color:#6633CC;
+	top:200px;
+}
+
+#IPick
+{
+	background-color: #FF6600;
+	top:250px;
+}
+
+#ILose
+{
+	background-color: #FF6600;
+	top:300px;
+}
+
+#ourHonor
+{
+	background-color: #669900;
+	top:350px;
+}
+
+.vBar2
+{
+	width:12px;
+	height:40px;
+	position:fixed;
+	right:-15px;
+	border-bottom-left-radius:5px;
+	border-top-left-radius:5px;
+	font-size:0px;
+	font-weight: normal;
+	color:#ffffff;
+	padding-top:10px;
+	cursor: pointer;
+	z-index:3;
+}
+
+.vBarExtend
+{
+	padding-left:25px;
+	font-size:14px;
+}
+
+#allInf2
+{
+	background-color:#6666FF;
+	top:100px;
+}
+
+#someonePick2
+{
+	background-color:#6666FF;
+	top:150px;
+}
+
+#someoneLose2
+{
+	background-color:#6666FF;
+	top:200px;
+}
+
+#IPick2
+{
+	background-color: #FF9900;
+	top:250px;
+}
+
+#ILose2
+{
+	background-color: #FF9900;
+	top:300px;
+}
+
+#ourHonor2
+{
+	background-color: #66CC33;
+	top:350px;
+}
+
+#secondHead
+{
+	width:100%;
+	height:230px;
+}
+
+#heraldLogo
+{
+	position:absolute;
+	width:125px;
+	height:118px;
+	margin-top:30px;
+	right: 150px;
+}
+
+#secondTitle
+{
+	position: absolute;
+}
+
+#secondTitle h2
+{
+	margin-top:115px;
+	margin-left:210px;
+	font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2","Lucida Grande","Helvetica Neue",Helvetica,Arial,
+	"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+.glyphicon-log-in,
+.glyphicon-log-out,
+.glyphicon-tower
+{
+	margin-left:50px;
+}
+
+#loginForm
+{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.loginInput
+{
+	width:200px;
+	float:left;
+}
+
+#loginTip
+{
+	margin-left: 80px;
+}
+
+.filterBox
+{
+	margin-bottom:10px;
+}
+
+.filterBoxCheck
+{
+	margin-right:50px;
+}
+
+#filterBtn
+{
+	margin-right: 20px;
+}
+
+#searchInput
+{
+	width:250px;
+	margin-left: 20px;
+}
+
+.filterTimeLabel
+{
+	float:left;
+}
+
+#beginTime, #endTime
+{
+	width:260px;
+}
+
+#container
+{
+	position:relative;
+	z-index:1;
+	border-radius:5px;
+	border: 1px solid #99CCFF;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+			box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+	margin-left: 150px;
+	margin-right: 50px;
+	margin-top: 35px;
+	margin-bottom: 25px;
+}
+
+#con-border
+{
+	min-height: 100%;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 80px;
+	margin-bottom: 0;
+}
+
+.content
+{
+	width:250px;
+	height:360px;
+	float:left;
+	margin:15px;
+}
+
+.con-pick
+{
+	border-color:#CCFFCC;
+}
+
+.con-pick:hover
+{
+	-webkit-box-shadow: inset 0 1px 1px #99FF99, 0 0 8px #99FF99;
+			box-shadow: inset 0 1px 1px #99FF99, 0 0 8px #99FF99;
+}
+
+.con-lose
+{
+	border-color:#FFCCFF;
+}
+
+.con-lose:hover
+{
+	-webkit-box-shadow: inset 0 1px 1px #FF99CC, 0 0 8px #FF99CC;
+			box-shadow: inset 0 1px 1px #FF99CC, 0 0 8px #FF99CC;
+}
+
+.con-pic
+{
+	width:240px;
+	height:180px;
+	border-radius:5px;
+	border: 1px solid #ddd;
+}
+
+.con-pic
+{
+	cursor: pointer;
+}
+
+.con-describe
+{
+	width:235px;
+	height:135px;
+}
+
+.content button
+{
+	cursor: pointer;
+	position:relative;
+	float:right;
+	margin-right:10px;
+	width:50px;
+}
+
+.content p
+{
+	margin-bottom: 0px;
+}
+
+.clear
+{
+	clear:both;
+}
+
+#addmore
+{
+	width:80%;
+	margin-left:10%;
+	margin-right:10%;
+	margin-bottom:25px;
+	margin-top:25px;
+}
+
+#foot
+{
+	margin-top: -80px;
+	border-top: 1px solid #ddd;
+	height:80px;
+	width:100%;
+	background-color:#FFFFFF;
+	-webkit-box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.2);
+	z-index:3;
+}
+
+#foot h5
+{
+	text-align:center;
+	color:#666;
+	padding-top:25px;
+}
+
+#detail .modal-dialog
+{
+	width:900px;
+}
+
+#detailImg
+{
+	padding:5px;
+	border-radius:5px;
+	border: 1px solid #ddd;
+	width:400px;
+	height:400px;
+	float:left;
+}
+
+#detailRight
+{
+	float:left;
+}
+
+#detailInfo
+{
+	width:400px;
+	margin-left: 20px;
+	padding-left: 20px;
+	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-bottom-left-radius: 5px;
+
+}
+
+#detailComment
+{
+	width:400px;
+	margin-left: 20px;
+	margin-top: 10px;
+	padding-left: 20px;
+	border-left: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	border-top-left-radius: 5px;
+	//height:100px;
+}
+
+#detailComment h4
+{
+	background: -webkit-linear-gradient(top, rgba(70, 70, 70, 1) 0%,rgba(111, 111, 111, 1) 50%,rgba(10, 14, 10, 1) 51%,rgba(10, 8, 9, 1) 100%);
+	-webkit-box-reflect: below -7px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.2, transparent), to(rgba(3,3,3,.1)));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	transition: .5s;
+}
+
+#commentBox
+{
+	position: fixed;
+	width:100%;
+	height:0;
+	background-color: white;
+	border-top: 1px solid #ddd;
+	bottom: 0px;
+	z-index: 10;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+#hide
+{
+	position: absolute;
+	right: 170px;
+	top:50px;
+}
+
+#submit
+{
+	position: absolute;
+	right: 170px;
+	top: 10px;
+}
+
+#commentContent
+{
+	position: absolute;
+	right:250px;
+	margin-top: 5px;
+	width:500px;
+	height:90px;
+}
+
+#commentContent2
+{
+	margin-left: 20px;
+	width: 400px;
+}
+
+#submit2
+{
+	float: right;
+	margin-top: 5px;
+}

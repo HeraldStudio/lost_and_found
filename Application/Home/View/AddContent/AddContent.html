@@ -1,0 +1,66 @@
+
+<div class="thumbnail content {$infoType}">
+  <div 
+      <?php
+        if($infoType=="con-pick"){
+      ?>
+      class="con-pic btnPick"
+      <?php
+        }else{
+      ?>
+      class="con-pic btnLose" 
+      <?php
+        }
+      ?>
+  id="{$content_id}">
+    <img src={$picture_url} style="width:{$width}px; height:{$height}px; margin-top:{$marginTop}px; margin-left:{$marginLeft}px;">
+  </div>
+  <div class="caption">
+    <div class="con-describe">
+      <p><?php
+        if($infoType=="con-pick"){
+          ?>
+          捡到
+          <?php
+        }
+        else{
+          ?>
+          丢失
+          <?php
+        }
+      ?>：{$thing_name}</p> 
+      <p>地点：{$place}</p>
+      <p>时间：{$datetime}</p>
+      <p>描述：{$thing_describe}</p>
+    </div>
+    <p>
+      <button 
+      <?php
+        if($infoType=="con-pick"){
+      ?>
+      class="btn btn-primary btn-xs btnPick comment" 
+      <?php
+        }else{
+      ?>
+      class="btn btn-primary btn-xs btnLose comment" 
+      <?php
+        }
+      ?>
+
+      id="{$content_id}"><span class="glyphicon glyphicon-comment"></span> 评论</button>
+      <button 
+      <?php
+        if($infoType=="con-pick"){
+      ?>
+        class="btn btn-success btn-xs btnPick detail"
+      <?php
+        }else{
+      ?>
+        class="btn btn-danger btn-xs btnLose detail"
+      <?php
+        }
+      ?>
+       id="{$content_id}"><span class="glyphicon glyphicon-list-alt"></span> 详情</button>
+    </p>
+  </div>
+</div>
