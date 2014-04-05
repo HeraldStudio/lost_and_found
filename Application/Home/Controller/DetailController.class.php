@@ -31,7 +31,7 @@ class DetailController extends Controller {
         $conWidth=390; $conHeight=390;  //设置容器尺寸，修改时只对此一处进行修改
         list($width, $height, $type, $attr)=getimagesize($outputArray["picture_url"]);
         if(!$type){
-            $outputArray["picture_url"]="Public/pictures/".$outputArray["type"].".jpg";
+            $outputArray["picture_url"]="public/pictures/".$outputArray["type"].".jpg";
             list($width, $height, $type, $attr)=getimagesize($outputArray["picture_url"]);
         }
 

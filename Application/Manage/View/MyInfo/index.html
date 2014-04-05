@@ -1,0 +1,68 @@
+  <table class="table table-hover">
+     <tr class="success">
+        <th><strong>信息</strong></th>
+        <th><strong>类型</strong></th>
+        <th><strong>名称</strong></th>
+        <th><strong>地点</strong></th>
+        <th><strong>时间</strong></th>
+        <th><strong>状态</strong></th>
+        <th><strong>确认</strong></th>
+        <th><strong>删除</strong></th>
+        <th><strong>查看留言</strong></th>
+      </tr>
+     <tr>
+        <foreach name="info" item="l">
+        <?php
+        if($tp=='loses'){
+        ?>
+        <td>丢失</td>
+        <?php
+        }else{
+          ?>
+          <td>捡到</td>
+          <?php
+        }
+          ?>
+        <td>{$l.type}</td>
+        <td>{$l.thing_name}</td>
+        <td>{$l.place}</td>
+        <td>{$l.datetime}</td>
+        <td>
+      <?php
+      if($l[$callback]==0){
+      ?>
+      未找到
+      <?php
+      }else{
+      ?>
+      已找到
+      <?php
+      }
+      ?>
+    </td>
+        <td><button type="{$tp}" infoid="1" class="btn btn-sm btn-default confirm" id="{$l[$id]}"><span class="glyphicon glyphicon-ok confirm"></span>
+          <?php
+      if($l[$callback]==0){
+      ?>
+      等待确认
+      <?php
+      }else{
+      ?>
+      已找到
+      <?php
+      }
+      ?></button></td>
+         <td ><button type="{$tp}" infoid="2" class="btn btn-sm btn-danger delete"  id="{$l[$id]}"><span class="glyphicon glyphicon-remove"></span>删除</button></td>
+          <td ><button type="{$tp}" infoid="2" class="btn btn-sm btn-default remark"  id="{$l[$id]}"  data-toggle="modal" data-target="#demo{$l[$id]}" ><span class="glyphicon glyphicon-circle-arrow-down"></span>查看留言</button></td>
+         </tr>
+      </foreach> 
+   </table>
+
+ 
+   
+
+ 
+
+   <script src="__PUBLIC__/js/manage.js"></script>
+
+

@@ -10,7 +10,7 @@
       <?php
  } ?>
   id="<?php echo ($content_id); ?>">
-    <img src=<?php echo ($picture_url); ?> style="width:<?php echo ($width); ?>px; height:<?php echo ($height); ?>px; margin-top:<?php echo ($marginTop); ?>px; margin-left:<?php echo ($marginLeft); ?>px;">
+    <img src="../../../<?php echo ($picture_url); ?>" style="width:<?php echo ($width); ?>px; height:<?php echo ($height); ?>px; margin-top:<?php echo ($marginTop); ?>px; margin-left:<?php echo ($marginLeft); ?>px;">
   </div>
   <div class="caption">
     <div class="con-describe">

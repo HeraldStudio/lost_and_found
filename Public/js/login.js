@@ -15,7 +15,7 @@ jQuery(document).ready(function($) {
 			return;
 		}
 		$.ajax({
-			url:'Public/php/login.php',
+			url:'../../../Public/php/login.php',
 			//url:'http://herald.seu.edu.cn/useraccount/login.php',
 			type:'post',
 			dataType:'json',
@@ -69,7 +69,7 @@ jQuery(document).ready(function($) {
 function logout(){
 	//发送退出请求
 	$.ajax({
-	url:"Public/php/logout.php",
+	url:"../../../Public/php/logout.php",
 	type:"post",
 	dataType:"json",
 	success:function(data){
@@ -104,8 +104,10 @@ function logout(){
 }
 
 function manage(){
-	window.open("index.php/Home/Manage/index");
+	window.open("../../../index.php/Manage/index/index");
 }
+
+
 
 
 /*

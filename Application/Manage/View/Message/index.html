@@ -1,0 +1,41 @@
+    <!-- remarkModal -->
+      <div class="modal fade" id="demo{$id}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">查看留言</h4>
+            </div>
+            <div class="modal-body">
+              <?php
+              if($comment){
+              ?>
+              <foreach name="comment" item="c">
+						
+            <div class="media">
+              <div class="media-body">
+                <h4 class="media-heading">{$c.comment}</h4>
+                <div align="right">{$c.name}({$c.datetime})</div>
+              </div>
+            </div>
+            <hr>
+
+          </foreach>
+          <?php
+        }else{
+          ?>
+          <div class="media">
+              <div class="media-body">
+              <p>对不起，没有用户留言</p>
+              </div>
+            </div>
+        <?php
+        }
+        ?>    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->

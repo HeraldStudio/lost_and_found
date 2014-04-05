@@ -9,4 +9,6 @@ return array(
 	'DB_PORT' => '3306', // 端口
 	'DB_PREFIX' => '', // 数据库表前缀
 	//'DB_DSN' => '', // 数据库连接DSN 用于PDO方式
+	'MODULE_ALLOW_LIST' =>array('Home','Manage'),//项目分组
+	'DEFAULT_MODULE' =>'Home',//默认分组
 );

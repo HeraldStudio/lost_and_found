@@ -1,79 +1,74 @@
 jQuery(document).ready(function() {
 	 $("#pc_send").click(function(){
-	var thing_name = $('#pc_thing_name').val();
-	var place = $('#pc_place').val();
-	var datetime = $('#pc_datetime').val();
-	var contact = $('#pc_contact').val();
-	var thing_describe = $('#pc_thing_describe').val();
-	var type = $('#pc_type').val();
-	var picture_name = $('#pc_picture').val();
+	 var tp="pc";
+	clicktype(tp);
+	});
+
+	  $("#ls_send").click(function(){
+	   tp="ls";
+	clicktype(tp);
+	 });
+
+
+	function clicktype(tp){//判断点击事件的类型	
+	var place = $("#"+tp+"_place").val();
+	var datetime = $("#"+tp+"_datetime").val();
+	var contact = $("#"+tp+"_contact").val();
+	var thing_describe = $("#"+tp+"_thing_describe").val();
+	var type = $("#"+tp+"_type").val();
+	var fileinput = $("#"+tp+"_picture").val();
+	var thing_name = $("#"+tp+"_thing_name").val();
+	var if_has_picture;
+	var formdata = new FormData();
 	if(thing_name==''){
 		alert("物品名称不能为空");
-		pc_things_name.focus();
+		tp+'_things_name'.focus();
 		return;
 	}
 	if (place == ''){
 			alert("地点不能为空");
-			pc_place.focus();
+		tp+'_place'.focus();
 			return;
 	}
 	if (datetime == ''){
 			alert("时间不能为空");
-			pc_datetime.focus();
 			return;
 	}
-	
+	if(fileinput){
+		if_has_picture = 1;
+		fileinput = document.getElementById(tp+"_picture");
+		var file = fileinput.files[0];
+		formdata.append("picture[]", file);
+	}else{
+		if_has_picture = 0;
 
-				        
-	$.post('index.php/home/FormHandle/picksform',
-	{'thing_name':thing_name,'type':type,'place':place,'datetime':datetime,'contact':contact,'thing_describe':thing_describe,'picture_name':picture_name},
-		function(data){
-			if(data.status){
+	}
+				formdata.append("tp",tp);
+				formdata.append("if_has_picture", if_has_picture);
+				formdata.append("place",place);
+				formdata.append("thing_name", thing_name);
+				formdata.append("datetime", datetime);
+				formdata.append("contact", contact);
+				formdata.append("thing_describe", thing_describe);
+				formdata.append("type", type);
+				if (formdata) {
+   				$.ajax({
+		        url: "../FormHandle/form",
+		        type: "POST",
+		        data:formdata,
+		        processData: false,
+		        contentType: false,
+		        success: function (data) {
+				if(data.status){
 				alert('发布成功');
-				$("#picks").modal('hide'); 
-
-			}else{
+				$("#"+data.tp).modal('hide'); 
+				}else{
 				alert('发布失败');
-				$("#picks").modal('hide'); 
+				$("#"+data.tp).modal('hide'); 
+				}
 			}
-		},'json');
-	});
-
-	   $("#ls_send").click(function(){
-	var thing_name = $('#ls_thing_name').val();
-	var place = $('#ls_place').val();
-	var datetime = $('#ls_datetime').val();
-	var contact = $('#ls_contact').val();
-	var thing_describe = $('#ls_thing_describe').val();
-	var type = $('#ls_type').val();
-	var if_has_picture = $("input[name='ls_has_picture']:checked").val();
-	if(thing_name==''){
-		alert("物品名称不能为空");
-		ls_things_name.focus();
-		return;
-	}
-	if (place == ''){
-			alert("地点不能为空");
-			ls_place.focus();
-			return;
-	}
-	if (datetime == ''){
-			alert("时间不能为空");
-			ls_datetime.focus();
-			return;
-	}
-
-	$.post('index.php/home/FormHandle/losesform',
-	{'thing_name':thing_name,'type':type,'place':place,'datetime':datetime,'contact':contact,'thing_describe':thing_describe,'if_has_picture':if_has_picture},
-		function(data){
-			if(data.status){
-				alert('发布成功');
-				$("#loses").modal('hide'); 
-			}else{
-				alert('发布失败');
-				$("#loses").modal('hide'); 
-			}
-		},'json');
-	});
+		})
+   			}
+	   	}		
 
 });

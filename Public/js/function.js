@@ -113,7 +113,7 @@ function comment(infoType, commentId){
 
 function setComment(infoType, commentId, commentContent, refresh){
 	$.ajax({
-		url:'index.php/Home/Detail/setComment',
+		url:'../Detail/setComment',
 		type:'post',
 		dataType:'json',
 		data:{"infoType": infoType, "id": commentId, "content": commentContent },
@@ -141,7 +141,7 @@ function setComment(infoType, commentId, commentContent, refresh){
 
 function detail(infoType, detailId){
 	$.ajax({
-		url:'index.php/Home/Detail/index',
+		url:'../Detail/index',
 		type:'post',
 		dataType:'json',
 		data:{"infoType": infoType, "id": detailId },
@@ -176,7 +176,7 @@ function detail(infoType, detailId){
 
 function getContact(type, id){
 	$.ajax({
-		url:'index.php/Home/Detail/getContact',
+		url:'../Detail/getContact',
 		type:'post',
 		dataType:'json',
 		data:{"infoType": type, "id": id },
@@ -329,7 +329,7 @@ function loadContetnClass(){
 	}
 
 	this.normalLoad=function(clean){
-		postUrl='index.php/Home/AddContent/index';
+		postUrl='../AddContent/index';
 		postJson={"loseId": loseId, "pickId": pickId, "addCount": addCount,
 			typeFilter:{
 				stationery: typeSelect["stationery"],
@@ -373,7 +373,7 @@ function loadContetnClass(){
 		}else{
 			clean=false;
 		}
-		postUrl='index.php/Home/AddContent/achievements';
+		postUrl='../AddContent/achievements';
 		postJson={"loseId": loseId, "pickId": pickId, "addCount": addCount}
 		this.ajaxLoad(postUrl, postJson, clean);
 	}

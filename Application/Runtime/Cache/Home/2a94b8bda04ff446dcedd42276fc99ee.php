@@ -5,9 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="Public/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="Public/css/application.css" rel="stylesheet" media="screen">
-    <link href="Public/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <link href="/1/7/6/lost_and_found/Public/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="/1/7/6/lost_and_found/Public/css/application.css" rel="stylesheet" media="screen">
+    <link href="/1/7/6/lost_and_found/Public/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -22,7 +22,7 @@
 			<div id="myTitle1"><strong>失物招领</strong></div>
 			<div id="myTitle2">您口袋的小补丁</div>
 		</div>
-    <img src="Public/img/herald.png" id="heraldLogoTop">
+    <img src="/1/7/6/lost_and_found/Public/img/herald.png" id="heraldLogoTop">
 
     <div id="nav">
       <nav class="navbar navbar-default" id="navbar" role="navigation">
@@ -205,16 +205,16 @@
         </div>
         <!--窗口主体-->
         <div class="modal-body">
-            <form class="form-horizontal" id="picksForm" role="form" enctype="multipart/form-data" target="tarframe" method="post" name="myfile">
+            <form class="form-horizontal" id="picksForm" role="form" enctype="multipart/form-data" method="post" name="myfile">
               <div class="form-group">
-                <label for="pc_thing_name" class="col-sm-3 control-label">物品名称：</label>
+                <label for="pc_thing_name" class="col-sm-3 control-label">物品名称:</label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" id="pc_thing_name" placeholder="物品名称">
                 </div>
               </div>
                 
                    <div class="form-group">
-                <label for="type" class="col-sm-3 control-label">类型：</label>
+                <label for="type" class="col-sm-3 control-label">类型:</label>
                 <div class="col-xs-6">
               <select class="form-control" id="pc_type">
                  <option id="inlineCheckbox1" value="stationery"> 书本文具</option>
@@ -227,31 +227,37 @@
             </div>
             </div>
               <div class="form-group">
-                    <label for="pc_place" class="col-sm-3 control-label">地点：</label>
+                    <label for="pc_place" class="col-sm-3 control-label">地点:</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="pc_place" placeholder="地点">
+                    <input type="text" class="form-control" name="pc_place" id="pc_place" placeholder="地点">
                 </div>
               </div>
 
               <div class="form-group">
                     <label for="pc_datetime" class="col-sm-3 control-label">时间:</label>
                 <div class="col-sm-6">
-                    <input type="date" class="form-control" id="pc_datetime"  placeholder="时间">
+                     <div class="input-group date form_datetime" data-date="2014-3-8 13:49:00" data-date-format="yyyy-mm-dd hh:ii:ss"   data-link-field="time_input1">
+                    <input class="form-control"  type="text"  id="pc_datetime" value=""  placeholder="时间" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <input type="hidden" id="time_input1" value="" />
+                    <!-- <input type="date" class="form-control" id="pc_datetime"  placeholder="时间"> -->
                 </div>
               </div>
 
               <div class="form-group">
-                    <label for="ls_contact" class="col-sm-3 control-label">联系方式：</label>
+                    <label for="ls_contact" class="col-sm-3 control-label">联系方式:</label>
                 <div class="col-sm-6">
                     <input type="tel" class="form-control" id="pc_contact" placeholder="联系方式">
                 </div>
               </div>
 
               <div class="form-group">
-                    <label for="place" class="col-sm-3 control-label">上传图片：</label>
+                    <label for="place" class="col-sm-3 control-label">上传图片:</label>
                 <div class="col-sm-6">
             <label>
-            <input type="file" class="Input_file" id="pc_picture" name="pc_picture" >
+            <input type="file" class="Input_file" id="pc_picture" name="pc_picture" accept="image/gif,image/jpg">
             <button type="submit" id="btn" style="display:none">upload</button>
             </label>
                 </div>
@@ -259,14 +265,12 @@
               </div>
 
               <div class="form-group">
-                <label for="pc_thing_des" class="col-sm-3 control-label">备注：</label>
+                <label for="pc_thing_des" class="col-sm-3 control-label">备注:</label>
                 <div class="col-sm-6">
                 <textarea class="form-control" rows="3" id="pc_thing_describe"></textarea>
               </div>
               </div>
                     </form>
-                    <iframe src=""  width="0" height="0" style="display:none;" name="tarframe">
-                    </iframe>
                     <p id="pc_Tip">  Tips:时间不确定可以写相近的日期~</p>
                   </div>
           <!--窗口主体-->     
@@ -288,9 +292,9 @@
         </div>
         <!--窗口主体-->
         <div class="modal-body">
-           <form class="form-horizontal" id="losesForm" role="form" enctype="multipart/form-data" target="tariframe" method="post" name="myfile">
+           <form class="form-horizontal" id="losesForm" role="form" enctype="multipart/form-data" method="post" name="myfile">
               <div class="form-group">
-                <label for="pc_things_name" class="col-sm-3 control-label">物品名称：</label>
+                <label for="ls_things_name" class="col-sm-3 control-label">物品名称：</label>
                 <div class="col-sm-6">
                   <input type="text" class="form-control" id="ls_thing_name" placeholder="物品名称">
                 </div>
@@ -317,9 +321,14 @@
               </div>
 
               <div class="form-group">
-                    <label for="pc_datetime" class="col-sm-3 control-label">时间:</label>
+                    <label for="ls_datetime" class="col-sm-3 control-label">时间:</label>
                 <div class="col-sm-6">
-                    <input type="date" class="form-control" id="ls_datetime"  placeholder="时间">
+                     <div class="input-group date form_datetime" data-date="2014-3-8 13:49:00" data-date-format="yyyy-mm-dd hh:ii:ss"   data-link-field="time2_input1">
+                    <input class="form-control"  type="text"  id="ls_datetime" value=""  placeholder="时间" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <input type="hidden" id="time2_input1" value="" />
                 </div>
               </div>
 
@@ -335,7 +344,7 @@
                 <div class="col-sm-6">
             
             <label>
-            <input type="file" class="Input_file" id="ls_picture" name="ls_picture">
+            <input type="file" class="Input_file" id="ls_picture" name="ls_picture" accept="image/gif,image/jpg">
             <button type="submit" id="lsbtn" style="display:none">upload</button>
             </label>
                 </div>
@@ -349,8 +358,6 @@
               </div>
               </div>
                     </form>
-                    <iframe src=""  width="0" height="0" style="display:none;" name="tariframe">
-                    </iframe>
                     <p id="ls_Tip">  Tips:时间不确定可以写相近的日期~</p>
                   </div>
           <!--窗口主体-->     
@@ -366,7 +373,7 @@
       当前范围
       <div id="tipInner">全部信息</div>
     </div>
-    <img id="pin" src="Public/img/pin.png"/>
+    <img id="pin" src="/1/7/6/lost_and_found/Public/img/pin.png"/>
 
     <div class="vBar" id="allInf"></div>
     <div class="vBar" id="someonePick"></div>
@@ -407,7 +414,7 @@
 
     <div id="con-border">
       <div id="secondHead">
-        <img src="Public/img/herald.png" id="heraldLogo">
+        <img src="/1/7/6/lost_and_found/Public/img/herald.png" id="heraldLogo">
         <div id="secondTitle"><h2>东南大学先声网 - 网络先驱的声音</h2></div>
       </div>
 
@@ -430,16 +437,15 @@
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="Public/js/jquery.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="Public/js/bootstrap.js"></script>
-    <script src="Public/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="Public/js/bootstrap-datetimepicker.fr.js"></script>
-    <script src="Public/js/animate.js"></script>
-    <script src="Public/js/login.js"></script>
-    <script src="Public/js/function.js"></script>
-    <script src="Public/js/formhandle.js"></script>
-    <script src="Public/js/upload.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/bootstrap.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/bootstrap-datetimepicker.fr.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/animate.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/login.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/function.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/formhandle.js"></script>
   </body>
   </body>
 </html>

@@ -5,10 +5,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="/6/lost_and_found/Public/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="/6/lost_and_found/Public/css/manage.css" rel="stylesheet" media="screen">
-    <link href="/6/lost_and_found/Public/css/Bootstrap-Responsive.min.css" rel="stylesheet" media="screen">
-    <link href="/6/lost_and_found/Public/css/application.css" rel="stylesheet" media="screen">
+    <link href="/1/7/6/lost_and_found/Public/css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="/1/7/6/lost_and_found/Public/css/manage.css" rel="stylesheet" media="screen">
+    <link href="/1/7/6/lost_and_found/Public/css/Bootstrap-Responsive.min.css" rel="stylesheet" media="screen">
+    <link href="/1/7/6/lost_and_found/Public/css/application.css" rel="stylesheet" media="screen">
   
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -20,41 +20,13 @@
 
   <body>
 
-  
 
+  	<div id="global" >
+      <div id="head">
+       </div>
+ </div>
 
-
-
-
-
-  <div id="container">    
-
-    <div id="ctn-head">
-      <h1 class="ctn-font">
-        <div class="home_img"></div>
-        <span>用户个人管理中心</span>
-      </h1>
-    </div>
-
-    <div id="left">
-      <div id="menu">
-          <ul>
-          <li>
-             <div class="find_img"></div>
-          <a href="<?php echo U('Home/PickInfo/index');?>">浏览招领信息</a>
-        </li>
-          <li>
-             <div class="lost_img"></div>
-            <a href="<?php echo U('Home/LoseInfo/index');?>">浏览寻物信息</a>
-          </li>
-          <li>
-             <div class="message_img"></div>
-            <a href="<?php echo U('Home/Message/index');?>">留言回复</a></li>
-          </ul>
-          </div>
-     </div>
-
-     <div id="right"> 
+ <div id="sechead">
     <nav class="navbar navbar-default" role="navigation">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -71,26 +43,50 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav" id="headnav">
           <li><a href="http://herald.seu.edu.cn" target="_blank">先声首页</a></li>
-          <li><a href="#">失物招领</a></li>
-          <li><a href="http://herald.seu.edu.cn/herald_league/" target="_blank">活动平台</a></li>
-          <li><a href="http://herald.seu.edu.cn/window/" target="_blank">东大之窗</a></li>
+          <li id="loseinfo">失物信息</li>
+          <li><a href="#">招领信息</a></li>
           <li><a href="http://herald.seu.edu.cn/about/" target="_blank">关于我们</a></li>
-          <li><a href="#" target="blank">二手市场</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>
-<h3 align="center">O(∩_∩)O 欢迎来到管理页面</h3>  
-</div>
-</div>
+   </div>
+
+
+   <div id="container">
+
+      <table class="table table-hover">
+      <tr class="success">
+        <th id="id"><strong>#</strong></th>
+        <th id="type"><strong>类型</strong></th>
+        <th><strong>名称</strong></th>
+        <th><strong>地点</strong></th>
+        <th><strong>时间</strong></th>
+        <th id="status"><strong>状态</strong></th>
+        <th id="confirm"><strong>确认</strong></th>
+        <th id="delete"><strong>删除</strong></th>
+        <th id="delete"><strong>查看留言</strong></th>
+      </tr>
+    </table>
+    <div id="add"></div>
+
+
+   </div>
+
+
+
+
+
+
+
   <div id="foot">
     <h5> Copyright © 2001-2014 Herald.seu.edu.cn</h5>
   </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="__Public__/js/jquery.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/6/lost_and_found/Public/js/bootstrap.js"></script>
-    <script src="/6/lost_and_found/Public/js/manage.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/bootstrap.js"></script>
+    <script src="/1/7/6/lost_and_found/Public/js/manage.js"></script>
 
   </body>
 </html>
