@@ -25,6 +25,7 @@ return  array(
     'ACTION_SUFFIX'         =>  '', // 操作方法后缀
     'MULTI_MODULE'          =>  true, // 是否允许多模块 如果为false 则必须设置 DEFAULT_MODULE
     'MODULE_DENY_LIST'      =>  array('Common','Runtime'),
+    'MODULE_ALLOW_LIST'      =>  array('Home','Manage','Home2'),
     'CONTROLLER_LEVEL'      =>  1,
 
     /* Cookie设置 */
